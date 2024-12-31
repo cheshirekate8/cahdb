@@ -1,26 +1,27 @@
-1. All White Cards Page
-  - - [x] Render
-  - - [ ] Pagination every 25 cards
-2. All Black Cards Page
-  - - [x] Render
-  - - [ ] Pagination every 25 cards
-3. Basic dynamically routed pages for each pack
-  - - [ ] Page with pack data and links to white/black cards
-  - - [ ] Same white cards page for specific deck
-    - - [ ] with pagination
-  - - [ ] Same black cards page for specific deck
-    - - [ ] with pagination
-
-
-
-EVENTUALLY
+TO-DO:
 - - [x] Add pack number to each pack top level, make pack number ID? (can query, it counts)
 - - [x] Github
+- - [x] All White Cards Page (text only)
+- - [x] All Black Cards Page (text only)
+- - [ ] Basic dynamically routed pages for each pack
+  - - [ ] Page with pack data and links to white/black cards
+  - - [ ] Same white cards page for specific deck
+  - - [ ] Same black cards page for specific deck
 - - [ ] Vercel server
 - - [ ] Vercel client
 - - [ ] Homepage
 - - [ ] Add Tailwind
+- - [ ] Add Basic Stylings
+- - [ ] Add Card Styling
+  - - [ ] Black Cards
+  - - [ ] White Cards
 - - [ ] Create your own pack to download (JSON)
 - - [ ] Sign in to save your packs
+- - [ ] Pagination
+  - - [ ] Black Cards
+  - - [ ] White Cards
+  - - [ ] Packs Cards
+  - - [ ] Black Cards from single Pack
+  - - [ ] White Cards from single Pack
 - - [ ] Cypress testing
 - - [ ] Jest testing
