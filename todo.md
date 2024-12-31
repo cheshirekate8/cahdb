@@ -14,7 +14,7 @@
 
 
 EVENTUALLY
-- - [ ] Add pack number to each pack top level, make pack number ID?
+- - [x] Add pack number to each pack top level, make pack number ID? (can query, it counts)
 - - [x] Github
 - - [ ] Vercel server
 - - [ ] Vercel client
@@ -22,3 +22,5 @@ EVENTUALLY
 - - [ ] Add Tailwind
 - - [ ] Create your own pack to download (JSON)
 - - [ ] Sign in to save your packs
+- - [ ] Cypress testing
+- - [ ] Jest testing

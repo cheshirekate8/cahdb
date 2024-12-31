@@ -1,5 +1,3 @@
-//TODO: Figure out pack vs id situation
-
 const { packs } = require("../sampleData.js");
 
 //Mongoose Models
@@ -7,10 +5,9 @@ const Pack = require('../models/Pack')
 
 const { 
   GraphQLObjectType, 
-  GraphQLID,
   GraphQLString, 
   GraphQLInt, 
-  GraphQLBoolean, 
+  GraphQLBoolean,
   GraphQLList, 
   GraphQLNonNull, 
   GraphQLSchema 
@@ -52,11 +49,18 @@ const RootQuery = new GraphQLObjectType({
         return Pack.find();
       },
     },
-    pack: {
+    packByName: {
       type: PackType,
       args: { name: { type: GraphQLString } },
       resolve(parent, args) {
         return Pack.findOne({name: args.name});
+      },
+    }, 
+    packByNumber: {
+      type: PackType,
+      args: { num: { type: GraphQLInt } },
+      resolve(parent, args) {
+        return Pack.findOne({"white.pack": args.num});
       },
     }, 
   },
