@@ -2,6 +2,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import WhiteCards from "./pages/WhiteCards";
 import BlackCards from "./pages/BlackCards";
+import Packs from "./pages/Packs";
+
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -32,6 +34,7 @@ function App() {
               <Route path="/" element={<h1>CAH Deck Builder!</h1>} />
               <Route path="/white" element={<WhiteCards />} />
               <Route path="/black" element={<BlackCards />} />
+              <Route path="/packs" element={<Packs />} />
             </Routes>
           </div>
         </Router>

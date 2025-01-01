@@ -4,9 +4,12 @@ TO-DO:
 - - [x] All White Cards Page (text only)
 - - [x] All Black Cards Page (text only)
 - - [ ] Basic dynamically routed pages for each pack
-  - - [ ] Page with pack data and links to white/black cards
+  - - [x] Page with pack name and link to info page
+    - - [ ] Fix link href so it's "/packs/:pack/
+  - - [ ] Info page with links to white/black cards
   - - [ ] Same white cards page for specific deck
   - - [ ] Same black cards page for specific deck
+- - [ ] 404 page
 - - [ ] Vercel server
 - - [ ] Vercel client
 - - [ ] Homepage

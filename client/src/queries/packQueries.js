@@ -22,4 +22,21 @@ const GET_BLACKCARDS = gql`
   }
 `;
 
-export { GET_WHITECARDS, GET_BLACKCARDS };
+const GET_PACKS = gql`
+  query getPacks {
+    packs {
+      name
+      white {
+        text
+        pack
+      }
+      black {
+        text
+        pick
+      }
+      official
+    }
+  }
+`;
+
+export { GET_WHITECARDS, GET_BLACKCARDS, GET_PACKS };
