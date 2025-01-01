@@ -27,14 +27,8 @@ const GET_PACKS = gql`
     packs {
       name
       white {
-        text
         pack
       }
-      black {
-        text
-        pick
-      }
-      official
     }
   }
 `;
