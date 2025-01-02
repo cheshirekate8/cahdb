@@ -7,7 +7,6 @@ import Pack from "./pages/Pack";
 import NotFound from "./pages/404";
 import Home from "./pages/Home";
 
-
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {

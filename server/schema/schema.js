@@ -1,43 +1,47 @@
 const { packs } = require("../sampleData.js");
 
 //Mongoose Models
-const Pack = require('../models/Pack')
+const Pack = require("../models/Pack");
 
-const { 
-  GraphQLObjectType, 
-  GraphQLString, 
-  GraphQLInt, 
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLInt,
   GraphQLBoolean,
-  GraphQLList, 
-  GraphQLNonNull, 
-  GraphQLSchema 
-} = require('graphql');
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLSchema,
+} = require("graphql");
 
 const WhiteCardType = new GraphQLObjectType({
-  name: 'WhiteCard',
-  fields: () => ({
-    text: { type: GraphQLNonNull(GraphQLString) },
-    pack: { type: GraphQLNonNull(GraphQLInt) }
-  })
-});
-
-const BlackCardType = new GraphQLObjectType({
-  name: 'BlackCard',
+  name: "WhiteCard",
   fields: () => ({
     text: { type: GraphQLNonNull(GraphQLString) },
     pack: { type: GraphQLNonNull(GraphQLInt) },
-    pick: { type: GraphQLNonNull(GraphQLInt) }
-  })
+  }),
+});
+
+const BlackCardType = new GraphQLObjectType({
+  name: "BlackCard",
+  fields: () => ({
+    text: { type: GraphQLNonNull(GraphQLString) },
+    pack: { type: GraphQLNonNull(GraphQLInt) },
+    pick: { type: GraphQLNonNull(GraphQLInt) },
+  }),
 });
 
 const PackType = new GraphQLObjectType({
-  name: 'Pack',
+  name: "Pack",
   fields: () => ({
     name: { type: GraphQLNonNull(GraphQLString) },
-    white: { type: GraphQLNonNull(new GraphQLList(new GraphQLNonNull(WhiteCardType))) },
-    black: { type: GraphQLNonNull(new GraphQLList(new GraphQLNonNull(BlackCardType))) },
-    official: { type: GraphQLNonNull(GraphQLBoolean) }
-  })
+    white: {
+      type: GraphQLNonNull(new GraphQLList(new GraphQLNonNull(WhiteCardType))),
+    },
+    black: {
+      type: GraphQLNonNull(new GraphQLList(new GraphQLNonNull(BlackCardType))),
+    },
+    official: { type: GraphQLNonNull(GraphQLBoolean) },
+  }),
 });
 
 const RootQuery = new GraphQLObjectType({
@@ -53,16 +57,16 @@ const RootQuery = new GraphQLObjectType({
       type: PackType,
       args: { name: { type: GraphQLString } },
       resolve(parent, args) {
-        return Pack.findOne({name: args.name});
+        return Pack.findOne({ name: args.name });
       },
-    }, 
+    },
     pack: {
       type: PackType,
       args: { packId: { type: GraphQLInt } },
       resolve(parent, args) {
-        return Pack.findOne({"white.pack": args.packId});
+        return Pack.findOne({ "white.pack": args.packId });
       },
-    }, 
+    },
   },
 });
 

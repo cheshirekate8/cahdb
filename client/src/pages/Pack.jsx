@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { GET_PACK } from '../queries/packQueries';
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_PACK } from "../queries/packQueries";
 
 function Pack() {
   const { packId } = useParams();
@@ -16,9 +16,7 @@ function Pack() {
   return (
     <div>
       <h1>{pack.name}</h1>
-      {pack.official && (
-        <h4>Official Pack</h4>
-      )}
+      {pack.official && <h4>Official Pack</h4>}
       <h2>White Cards ({pack.white.length})</h2>
       <ul>
         {pack.white.map((card, index) => (
