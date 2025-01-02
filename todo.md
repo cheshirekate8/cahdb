@@ -13,10 +13,12 @@ TO-DO:
 - - [ ] Vercel client
 - - [ ] Add Tailwind
 - - [ ] Add Basic Stylings
+- - [ ] Homepage
+- - [ ] Search Component
+- - [ ] Card Component
 - - [ ] Add Card Styling
   - - [ ] Black Cards
   - - [ ] White Cards
-- - [ ] Homepage
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards

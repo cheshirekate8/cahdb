@@ -8,6 +8,7 @@ export default function WhiteCards() {
 
   return (
     <>
+      <h1>White Cards</h1>
       {!loading && !error && data.packs.length > 0 ? (
         <ul>
           {data.packs.map((pack) => (

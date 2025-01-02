@@ -8,6 +8,7 @@ export default function Packs() {
 
   return (
     <>
+      <h1>Packs</h1>
       {!loading && !error && data.packs.length > 0 ? (
         <ul>
           {data.packs.map((pack) => (

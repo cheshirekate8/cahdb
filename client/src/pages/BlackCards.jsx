@@ -8,6 +8,7 @@ export default function BlackCards() {
 
   return (
     <>
+      <h1>Black Cards</h1>
       {!loading && !error && data.packs.length > 0 ? (
         <ul>
           {data.packs.map((pack) => (
