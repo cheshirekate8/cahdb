@@ -6,15 +6,13 @@ export default function Packs() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Something went wrong! {error.message} </div>;
 
-  console.log(data.packs[0].white[0].pack)
-
   return (
     <>
       {!loading && !error && data.packs.length > 0 ? (
         <ul>
           {data.packs.map((pack) => (
             <li>
-              <a href={pack.white[0]?.pack}>{pack.name}</a>
+              <a href={`/packs/${pack.white[0]?.pack}`}>{pack.name}</a>
             </li>
           ))}
         </ul>

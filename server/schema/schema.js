@@ -56,11 +56,11 @@ const RootQuery = new GraphQLObjectType({
         return Pack.findOne({name: args.name});
       },
     }, 
-    packByNumber: {
+    pack: {
       type: PackType,
-      args: { num: { type: GraphQLInt } },
+      args: { packId: { type: GraphQLInt } },
       resolve(parent, args) {
-        return Pack.findOne({"white.pack": args.num});
+        return Pack.findOne({"white.pack": args.packId});
       },
     }, 
   },

@@ -33,4 +33,20 @@ const GET_PACKS = gql`
   }
 `;
 
-export { GET_WHITECARDS, GET_BLACKCARDS, GET_PACKS };
+const GET_PACK = gql`
+  query getPack($packId: Int!) {
+    pack(packId: $packId) {
+      name
+      white {
+        text
+      }
+      black {
+        text
+        pick
+      }
+      official
+    }
+  }
+`;
+
+export { GET_WHITECARDS, GET_BLACKCARDS, GET_PACKS, GET_PACK };

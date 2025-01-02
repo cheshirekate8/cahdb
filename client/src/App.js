@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import WhiteCards from "./pages/WhiteCards";
 import BlackCards from "./pages/BlackCards";
 import Packs from "./pages/Packs";
+import Pack from "./pages/Pack";
 
 
 const cache = new InMemoryCache({
@@ -35,6 +36,7 @@ function App() {
               <Route path="/white" element={<WhiteCards />} />
               <Route path="/black" element={<BlackCards />} />
               <Route path="/packs" element={<Packs />} />
+              <Route path="/packs/:packId" element={<Pack />} />
             </Routes>
           </div>
         </Router>
