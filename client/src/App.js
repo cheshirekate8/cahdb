@@ -4,6 +4,8 @@ import WhiteCards from "./pages/WhiteCards";
 import BlackCards from "./pages/BlackCards";
 import Packs from "./pages/Packs";
 import Pack from "./pages/Pack";
+import NotFound from "./pages/404";
+import Home from "./pages/Home";
 
 
 const cache = new InMemoryCache({
@@ -32,11 +34,12 @@ function App() {
         <Router>
           <div className="container">
             <Routes>
-              <Route path="/" element={<h1>CAH Deck Builder!</h1>} />
+              <Route path="/" element={<Home />} />
               <Route path="/white" element={<WhiteCards />} />
               <Route path="/black" element={<BlackCards />} />
               <Route path="/packs" element={<Packs />} />
               <Route path="/packs/:packId" element={<Pack />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
         </Router>

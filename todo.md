@@ -3,26 +3,24 @@ TO-DO:
 - - [x] Github
 - - [x] All White Cards Page (text only)
 - - [x] All Black Cards Page (text only)
-- - [ ] Basic dynamically routed pages for each pack
+- - [x] Basic dynamically routed pages for each pack
   - - [x] Page with pack name and link to info page
     - - [x] Fix link href so it's "/packs/:pack/
   - - [x] Info page with lists of white/black cards
-- - [ ] 404 page
+- - [x] 404 page
 - - [ ] Vercel server
 - - [ ] Vercel client
-- - [ ] Homepage
 - - [ ] Add Tailwind
 - - [ ] Add Basic Stylings
 - - [ ] Add Card Styling
   - - [ ] Black Cards
   - - [ ] White Cards
-- - [ ] Create your own pack to download (JSON)
-- - [ ] Sign in to save your packs
+- - [ ] Homepage
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards
   - - [ ] Packs Cards
-  - - [ ] Black Cards from single Pack
-  - - [ ] White Cards from single Pack
+- - [ ] Create your own pack to download (JSON)
+- - [ ] Sign in to save your packs
 - - [ ] Cypress testing
 - - [ ] Jest testing
