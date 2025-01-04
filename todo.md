@@ -10,7 +10,6 @@ TO-DO:
   - - [x] Info page with lists of white/black cards
 - - [x] 404 page
 - - [x] Add Tailwind
-- - [ ] Add Basic Stylings
 - - [x] Card Component
 - - [x] Add Card Styling
   - - [x] Black Cards
@@ -18,15 +17,18 @@ TO-DO:
   - - [x] Pack Cards
   - - [x] Card logos
 - - [x] Favicon
-- - [ ] Search Component
-- - [ ] Homepage
-- - [ ] Vercel server
-- - [ ] Vercel client
+- - [x] Vercel server
+- - [x] Vercel client
+- - [ ] Add Basic Stylings
+- - [ ] Basic Homepage
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards
   - - [ ] Packs Cards
+- - [ ] Search Component
 - - [ ] Create your own pack to download (JSON)
+  - - [ ] Mutations
 - - [ ] Sign in to save your packs
+- - [ ] Download your packs
 - - [ ] Cypress testing
 - - [ ] Jest testing
