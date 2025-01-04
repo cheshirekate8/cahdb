@@ -5,6 +5,8 @@ const Home = () => {
     <div>
       <h1>CAH Deck Builder!</h1>
       <Link to="/packs">View All Packs</Link>
+      <Link to="/black">View All Black Cards</Link>
+      <Link to="/white">View All White Cards</Link>
     </div>
   );
 };

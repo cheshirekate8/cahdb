@@ -1,3 +1,6 @@
+import cardTextBlack from "../images/cardTextBlack.svg";
+import cardTextWhite from "../images/cardTextWhite.svg";
+
 export default function Card({ color, text, tailwind, onClick, style }) {
   return (
     <div
@@ -14,6 +17,11 @@ export default function Card({ color, text, tailwind, onClick, style }) {
       >
         {text}
       </div>
+      <img
+        src={color === "black" ? cardTextWhite : cardTextBlack}
+        alt="Cards Against Humanity Logo"
+        priority
+      />
     </div>
   );
 }

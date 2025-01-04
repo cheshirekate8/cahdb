@@ -16,7 +16,8 @@ TO-DO:
   - - [x] Black Cards
   - - [x] White Cards
   - - [x] Pack Cards
-  - - [ ] Card logos
+  - - [x] Card logos
+- - [x] Favicon
 - - [ ] Search Component
 - - [ ] Homepage
 - - [ ] Vercel server
