@@ -31,7 +31,7 @@ function App() {
     <>
       <ApolloProvider client={client}>
         <Router>
-          <div className="container">
+          <div className="mx-auto p-8">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/white" element={<WhiteCards />} />

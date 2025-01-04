@@ -19,15 +19,17 @@ TO-DO:
 - - [x] Favicon
 - - [x] Vercel server
 - - [x] Vercel client
-- - [ ] Add Basic Stylings
-- - [ ] Basic Homepage
+- - [x] Add Basic Stylings
+- - [x] Basic Homepage
+- - [x] Add a loading spinner
+- - [x] Change error to 404 page from packs/:pack23983jrdwnfj
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards
   - - [ ] Packs Cards
-- - [ ] Search Component
 - - [ ] Create your own pack to download (JSON)
   - - [ ] Mutations
+- - [ ] Search Component
 - - [ ] Sign in to save your packs
 - - [ ] Download your packs
 - - [ ] Cypress testing
