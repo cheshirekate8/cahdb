@@ -20,6 +20,8 @@ export default function Card({ color, text, tailwind, onClick, style }) {
       <img
         src={color === "black" ? cardTextWhite : cardTextBlack}
         alt="Cards Against Humanity Logo"
+        width="300px"
+        height="100px"
         priority
       />
     </div>

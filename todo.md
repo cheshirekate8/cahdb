@@ -23,12 +23,13 @@ TO-DO:
 - - [x] Basic Homepage
 - - [x] Add a loading spinner
 - - [x] Change error to 404 page from packs/:pack23983jrdwnfj
+- - [ ] Create your own pack to download (JSON)
+  - - [ ] Add ids to cards
+  - - [ ] Mutations
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards
   - - [ ] Packs Cards
-- - [ ] Create your own pack to download (JSON)
-  - - [ ] Mutations
 - - [ ] Search Component
 - - [ ] Sign in to save your packs
 - - [ ] Download your packs
