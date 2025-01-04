@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_PACKS } from "../queries/packQueries";
+import { Link } from "react-router-dom";
+
 export default function Packs() {
   const { loading, error, data } = useQuery(GET_PACKS);
 
@@ -13,7 +15,7 @@ export default function Packs() {
         <ul>
           {data.packs.map((pack) => (
             <li>
-              <a href={`/packs/${pack.white[0]?.pack}`}>{pack.name}</a>
+              <Link to={`/packs/${pack.white[0]?.pack}`}>{pack.name}</Link>
             </li>
           ))}
         </ul>

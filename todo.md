@@ -9,16 +9,18 @@ TO-DO:
     - - [x] Fix link href so it's "/packs/:pack/
   - - [x] Info page with lists of white/black cards
 - - [x] 404 page
+- - [x] Add Tailwind
+- - [ ] Add Basic Stylings
+- - [x] Card Component
+- - [x] Add Card Styling
+  - - [x] Black Cards
+  - - [x] White Cards
+  - - [x] Pack Cards
+  - - [ ] Card logos
+- - [ ] Search Component
+- - [ ] Homepage
 - - [ ] Vercel server
 - - [ ] Vercel client
-- - [ ] Add Tailwind
-- - [ ] Add Basic Stylings
-- - [ ] Homepage
-- - [ ] Search Component
-- - [ ] Card Component
-- - [ ] Add Card Styling
-  - - [ ] Black Cards
-  - - [ ] White Cards
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_PACK } from "../queries/packQueries";
+import Card from "../components/Card";
 
 function Pack() {
   const { packId } = useParams();
@@ -20,14 +21,15 @@ function Pack() {
       <h2>White Cards ({pack.white.length})</h2>
       <ul>
         {pack.white.map((card, index) => (
-          <li key={index}>{card.text}</li>
+          <Card color="white" text={card.text} key={index} />
         ))}
       </ul>
       <h2>Black Cards ({pack.black.length})</h2>
       <ul>
         {pack.black.map((card, index) => (
           <li key={index}>
-            {card.text} (Pick {card.pick})
+            <Card color="black" text={card.text} />
+            (Pick {card.pick})
           </li>
         ))}
       </ul>

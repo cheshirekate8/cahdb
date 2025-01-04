@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_BLACKCARDS } from "../queries/packQueries";
+import Card from "../components/Card";
 export default function BlackCards() {
   const { loading, error, data } = useQuery(GET_BLACKCARDS);
 
@@ -14,7 +15,7 @@ export default function BlackCards() {
           {data.packs.map((pack) => (
             <>
               {pack.black.map((blackCard) => (
-                <li>{blackCard.text}</li>
+                <Card color="black" text={blackCard.text} />
               ))}
             </>
           ))}

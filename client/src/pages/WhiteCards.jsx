@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_WHITECARDS } from "../queries/packQueries";
+import Card from "../components/Card";
 export default function WhiteCards() {
   const { loading, error, data } = useQuery(GET_WHITECARDS);
 
@@ -14,7 +15,7 @@ export default function WhiteCards() {
           {data.packs.map((pack) => (
             <>
               {pack.white.map((whiteCard) => (
-                <li>{whiteCard.text}</li>
+                <Card color="white" text={whiteCard.text} />
               ))}
             </>
           ))}
