@@ -22,7 +22,7 @@ function Pack() {
         {pack.name}
       </h1>
       {pack.official && (
-        <h4 className="text-xl font-black mb-8 italic font-normal">
+        <h4 className="text-xl mb-8 italic font-normal">
           Official Pack
         </h4>
       )}
