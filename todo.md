@@ -26,6 +26,10 @@ TO-DO:
 - - [ ] Create your own pack to download (JSON)
   - - [ ] Add ids to cards
   - - [ ] Mutations
+    - - [ ] Create Pack
+    - - [ ] Delete Pack
+    - - [ ] Update Pack
+    - - [ ] Render User Made Packs
 - - [ ] Pagination
   - - [ ] Black Cards
   - - [ ] White Cards
