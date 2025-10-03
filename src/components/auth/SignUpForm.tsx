@@ -8,7 +8,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { createClient } from '@/lib/supabase/client';
+import { useAuth } from '@/hooks/useAuth';
 import { emailSchema, passwordSchema } from '@/lib/utils/validation';
 
 const signupSchema = z
@@ -26,10 +26,9 @@ type SignupFormData = z.infer<typeof signupSchema>;
 
 export function SignupForm() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const supabase = createClient();
+  const { signUp, isLoading } = useAuth();
 
   const {
     register,
@@ -40,39 +39,20 @@ export function SignupForm() {
   });
 
   const onSubmit = async (data: SignupFormData) => {
-    try {
-      setIsLoading(true);
-      setError(null);
-      setSuccess(false);
+    setError(null);
+    setSuccess(false);
 
-      const { error: signUpError } = await supabase.auth.signUp({
-        email: data.email,
-        password: data.password,
-        options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback`,
-        },
-      });
+    const result = await signUp(data);
 
-      if (signUpError) {
-        setError(signUpError.message);
-        return;
-      }
+    if (!result.success) {
+      setError(result.error || 'Failed to create account');
+      return;
+    }
 
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (session) {
-        router.push('/builder');
-        router.refresh();
-      } else {
-        setSuccess(true);
-      }
-    } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
-      console.error('Signup error:', err);
-    } finally {
-      setIsLoading(false);
+    if (result.confirmed) {
+      router.push('/builder');
+    } else {
+      setSuccess(true);
     }
   };
 

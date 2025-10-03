@@ -1,22 +1,33 @@
 'use client';
-import React from 'react';
 
-import { createClient } from '@/lib/supabase/client';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useAuth } from '@/hooks/useAuth';
+import { LoadingSpinner } from '@/components/shared/LoadingSpinner';
 
-export function LogoutButton() {
-  const router = useRouter();
-  const supabase = createClient();
+export default function BuilderPage() {
+  const { user, isLoading } = useAuth();
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    router.push('/auth/login');
-    router.refresh();
-  };
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <LoadingSpinner text="Loading builder..." />
+      </div>
+    );
+  }
 
-  return <Button onClick={handleLogout}>Logout</Button>;
-}
-export default function page() {
-  return <LogoutButton />;
+  return (
+    <div className="min-h-screen p-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold mb-4">Deck Builder</h1>
+        <p className="text-muted-foreground mb-8">
+          Welcome, {user?.email}! This is where the deck builder will go.
+        </p>
+
+        <div className="p-8 border-2 border-dashed rounded-lg bg-muted/50">
+          <p className="text-center text-muted-foreground">
+            🎴 Deck builder interface coming in Step 10-20
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }

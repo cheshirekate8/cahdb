@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { UserMenu } from '@/components/layout/UserMenu';
 
 const inter = Inter({ subsets: ['latin'] });
+
+// const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export const metadata: Metadata = {
   title: {
@@ -66,8 +69,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* providers here */}
-        <div className="min-h-screen bg-background">{children}</div>
+        <div className="min-h-screen bg-background">
+          <header className="border-b">
+            <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+              <div className="text-xl font-bold">Deck Builder</div>
+              <UserMenu />
+            </div>
+          </header>
+
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );

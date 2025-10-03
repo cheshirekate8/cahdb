@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { useAuth } from '@/hooks/useAuth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { createClient } from '@/lib/supabase/client';
 import { emailSchema, passwordSchema } from '@/lib/utils/validation';
 
 const loginSchema = z.object({
@@ -20,9 +20,8 @@ type LoginFormData = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const supabase = createClient();
+  const { signIn, isLoading } = useAuth();
 
   const {
     register,
@@ -33,29 +32,16 @@ export function LoginForm() {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    try {
-      setIsLoading(true);
-      setError(null);
+    setError(null);
 
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email: data.email,
-        password: data.password,
-      });
+    const result = await signIn(data);
 
-      if (signInError) {
-        setError(signInError.message);
-        return;
-      }
-
-      // Success! Redirect to builder
-      router.push('/builder');
-      router.refresh();
-    } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
-      console.error('Login error:', err);
-    } finally {
-      setIsLoading(false);
+    if (!result.success) {
+      setError(result.error || 'Failed to sign in');
+      return;
     }
+
+    router.push('/builder');
   };
 
   return (
