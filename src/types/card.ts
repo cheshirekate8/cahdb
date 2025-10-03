@@ -1,22 +1,54 @@
-import { CARD_TYPES, CARD_RARITIES } from '@/lib/constants';
-
-export type CardType = typeof CARD_TYPES[keyof typeof CARD_TYPES];
-export type CardRarity = typeof CARD_RARITIES[keyof typeof CARD_RARITIES];
-
-export interface Card {
-  id: string;
-  type: CardType;
-  title: string;
+export interface WhiteCard {
   text: string;
-  rarity: CardRarity;
-  category: string;
+  pack: number;
+}
+
+export interface BlackCard {
+  text: string;
+  pick: number;
+  pack: number;
+}
+
+export interface CardPack {
+  name: string;
+  white: WhiteCard[];
+  black: BlackCard[];
+  official: boolean;
+}
+
+export type CardCollection = CardPack[];
+
+export type Card = WhiteCard | BlackCard;
+
+export function isBlackCard(card: Card): card is BlackCard {
+  return 'pick' in card;
+}
+
+export function isWhiteCard(card: Card): card is WhiteCard {
+  return !('pick' in card);
+}
+
+export enum CardType {
+  BLACK = 'black',
+  WHITE = 'white',
+}
+
+export interface TypedCard {
+  card: Card;
+  type: CardType;
+  id: string;
 }
 
 export interface CardFilters {
-  type?: CardType;
-  rarity?: CardRarity;
-  category?: string;
-  searchQuery?: string;
+  searchQuery: string;
+  cardType: CardType | 'all';
+  packs: number[];
+  sortBy: 'alphabetical' | 'pack' | 'default';
 }
 
-export type CardSortOption = 'name' | 'rarity' | 'type' | 'recent';
+export interface CardStats {
+  totalWhite: number;
+  totalBlack: number;
+  totalPacks: number;
+  officialPacks: number;
+}
