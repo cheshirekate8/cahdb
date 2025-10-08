@@ -31,12 +31,12 @@ export function DeckNameEditor() {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [description]); 
+  }, [description]);
 
   useEffect(() => {
     setName(currentDeck.name);
     setDescription(currentDeck.description || '');
-  }, [currentDeck.id]); 
+  }, [currentDeck.id]);
 
   return (
     <Card>

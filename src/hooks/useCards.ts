@@ -45,7 +45,7 @@ export function useCards() {
     return () => {
       mounted = false;
     };
-  }, []); 
+  }, []);
 
   const blackCards = useMemo(() => {
     return allPacks.flatMap((pack) => pack.black);
