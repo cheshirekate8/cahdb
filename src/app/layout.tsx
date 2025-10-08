@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Deck Builder',
   },
   description:
-    'Build, save, and share custom card decks with our intuitive deck builder. Create unlimited decks with drag-and-drop functionality.',
+    'Build, save, and share custom card decks with our intuitive deck builder. Create unlimited decks.',
   keywords: ['deck builder', 'card game', 'custom decks', 'card collection'],
   authors: [{ name: 'Your Name' }],
   creator: 'Your Name',

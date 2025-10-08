@@ -1,17 +1,16 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useCards } from '@/hooks/useCards'
-import { CardFilters } from './CardFilters'
-import { CardList } from './CardList'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { CardType } from '@/types/card'
-import type { BlackCard, WhiteCard } from '@/types/card'
-import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts'
-
+import { useState } from 'react';
+import { useCards } from '@/hooks/useCards';
+import { CardFilters } from './CardFilters';
+import { CardList } from './CardList';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { CardType } from '@/types/card';
+import type { BlackCard, WhiteCard } from '@/types/card';
+import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
 interface CardBrowserProps {
-  onCardSelect?: (card: BlackCard | WhiteCard, type: CardType) => void
+  onCardSelect?: (card: BlackCard | WhiteCard, type: CardType) => void;
 }
 
 export function CardBrowser({ onCardSelect }: CardBrowserProps) {
@@ -25,15 +24,15 @@ export function CardBrowser({ onCardSelect }: CardBrowserProps) {
     resetFilters,
     allPacks,
     stats,
-  } = useCards()
+  } = useCards();
 
   useKeyboardShortcuts({
-  '/': () => document.getElementById('search-input')?.focus(),
-  'Escape': () => resetFilters(),
-  'ctrl+f': () => document.getElementById('search-input')?.focus(),
-})
+    '/': () => document.getElementById('search-input')?.focus(),
+    Escape: () => resetFilters(),
+    'ctrl+f': () => document.getElementById('search-input')?.focus(),
+  });
 
-  const [activeTab, setActiveTab] = useState<'all' | 'black' | 'white'>('all')
+  const [activeTab, setActiveTab] = useState<'all' | 'black' | 'white'>('all');
 
   if (error) {
     return (
@@ -43,10 +42,8 @@ export function CardBrowser({ onCardSelect }: CardBrowserProps) {
         </h3>
         <p className="text-muted-foreground">{error}</p>
       </div>
-    )
+    );
   }
-
-  
 
   return (
     <div className="space-y-6">
@@ -58,7 +55,10 @@ export function CardBrowser({ onCardSelect }: CardBrowserProps) {
         stats={stats}
       />
 
-      <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as typeof activeTab)}>
+      <Tabs
+        value={activeTab}
+        onValueChange={(v) => setActiveTab(v as typeof activeTab)}
+      >
         <TabsList className="grid w-full grid-cols-3 max-w-md">
           <TabsTrigger value="all">
             All Cards ({stats.filteredBlackCount + stats.filteredWhiteCount})
@@ -96,11 +96,15 @@ export function CardBrowser({ onCardSelect }: CardBrowserProps) {
             </div>
           )}
 
-          {filteredBlackCards.length === 0 && filteredWhiteCards.length === 0 && !isLoading && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">No cards match your filters</p>
-            </div>
-          )}
+          {filteredBlackCards.length === 0 &&
+            filteredWhiteCards.length === 0 &&
+            !isLoading && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">
+                  No cards match your filters
+                </p>
+              </div>
+            )}
         </TabsContent>
 
         <TabsContent value="black" className="mt-6">
@@ -124,5 +128,5 @@ export function CardBrowser({ onCardSelect }: CardBrowserProps) {
         </TabsContent>
       </Tabs>
     </div>
-  )
+  );
 }

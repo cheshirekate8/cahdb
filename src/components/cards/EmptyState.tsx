@@ -1,9 +1,9 @@
-import { FileQuestion } from 'lucide-react'
+import { FileQuestion } from 'lucide-react';
 
 interface EmptyStateProps {
-  title?: string
-  description?: string
-  action?: React.ReactNode
+  title?: string;
+  description?: string;
+  action?: React.ReactNode;
 }
 
 export function EmptyState({
@@ -20,5 +20,5 @@ export function EmptyState({
       <p className="text-muted-foreground mb-6 max-w-sm">{description}</p>
       {action}
     </div>
-  )
+  );
 }

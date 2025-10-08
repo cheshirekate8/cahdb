@@ -12,7 +12,6 @@ export interface GameCardProps extends BaseComponentProps {
   card: BlackCard | WhiteCard;
   type: CardType;
   isSelected?: boolean;
-  isDraggable?: boolean;
   isInDeck?: boolean;
   onClick?: () => void;
   onRemove?: () => void;

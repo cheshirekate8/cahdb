@@ -1,34 +1,32 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { BlackCard, WhiteCard, CardType } from '@/types/card'
-import { X } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import Image from 'next/image'
+import { motion } from 'framer-motion';
+import { BlackCard, WhiteCard, CardType } from '@/types/card';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface GameCardProps {
-  card: BlackCard | WhiteCard
-  type: CardType
-  isSelected?: boolean
-  isDraggable?: boolean
-  isInDeck?: boolean
-  onClick?: () => void
-  onRemove?: () => void
-  className?: string
+  card: BlackCard | WhiteCard;
+  type: CardType;
+  isSelected?: boolean;
+  isInDeck?: boolean;
+  onClick?: () => void;
+  onRemove?: () => void;
+  className?: string;
 }
 
 export function GameCard({
   card,
   type,
   isSelected = false,
-  isDraggable = true,
   isInDeck = false,
   onClick,
   onRemove,
   className,
 }: GameCardProps) {
-  const isBlack = type === CardType.BLACK
-  const pick = 'pick' in card ? card.pick : undefined
+  const isBlack = type === CardType.BLACK;
+  const pick = 'pick' in card ? card.pick : undefined;
 
   return (
     <motion.div
@@ -36,14 +34,8 @@ export function GameCard({
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
-      whileHover={isDraggable ? { scale: 1.05, y: -5 } : undefined}
-      whileTap={isDraggable ? { scale: 0.95 } : undefined}
       onClick={onClick}
-      className={cn(
-        'relative group',
-        isDraggable && 'cursor-pointer',
-        className
-      )}
+      className={cn('relative group', 'cursor-pointer', className)}
     >
       <div
         className={cn(
@@ -53,23 +45,20 @@ export function GameCard({
           isBlack
             ? 'bg-black text-white border-2 border-gray-800'
             : 'bg-white text-black border-2 border-gray-200',
-          isSelected && 'ring-4 ring-primary ring-offset-2',
-          isDraggable && 'hover:shadow-2xl'
+          isSelected && 'ring-4 ring-primary ring-offset-2'
         )}
       >
         {isInDeck && onRemove && (
           <button
             onClick={(e) => {
-              e.stopPropagation()
-              onRemove()
+              e.stopPropagation();
+              onRemove();
             }}
             className={cn(
               'absolute top-2 right-2 p-1 rounded-full',
               'opacity-0 group-hover:opacity-100 transition-opacity',
               'hover:bg-red-500 hover:text-white',
-              isBlack
-                ? 'bg-white/10 text-white'
-                : 'bg-black/10 text-black'
+              isBlack ? 'bg-white/10 text-white' : 'bg-black/10 text-black'
             )}
             aria-label="Remove card"
           >
@@ -89,17 +78,13 @@ export function GameCard({
         </div>
 
         <div className="flex items-end justify-between mt-4">
-          <div className="text-xs opacity-60">
-            Pack {card.pack}
-          </div>
+          <div className="text-xs opacity-60">Pack {card.pack}</div>
 
           {pick !== undefined && pick > 1 && (
             <div
               className={cn(
                 'px-2 py-1 rounded text-xs font-bold',
-                isBlack
-                  ? 'bg-white text-black'
-                  : 'bg-black text-white'
+                isBlack ? 'bg-white text-black' : 'bg-black text-white'
               )}
             >
               PICK {pick}
@@ -107,19 +92,12 @@ export function GameCard({
           )}
 
           <div className="relative w-8 h-8 opacity-60">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              fill
-              className="object-contain"
-            />
+            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
           </div>
         </div>
       </div>
 
-      {isDraggable && (
-        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-10 bg-primary rounded-xl transition-opacity" />
-      )}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-10 bg-primary rounded-xl transition-opacity" />
     </motion.div>
-  )
+  );
 }

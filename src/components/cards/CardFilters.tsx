@@ -1,26 +1,26 @@
-'use client'
+'use client';
 
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Search, X } from 'lucide-react'
-import type { CardFilters as CardFiltersType, CardPack } from '@/types/card'
+} from '@/components/ui/select';
+import { Search, X } from 'lucide-react';
+import type { CardFilters as CardFiltersType, CardPack } from '@/types/card';
 
 interface CardFiltersProps {
-  filters: CardFiltersType
-  onFiltersChange: (filters: CardFiltersType) => void
-  onReset: () => void
-  allPacks: CardPack[]
+  filters: CardFiltersType;
+  onFiltersChange: (filters: CardFiltersType) => void;
+  onReset: () => void;
+  allPacks: CardPack[];
   stats: {
-    filteredBlackCount: number
-    filteredWhiteCount: number
-  }
+    filteredBlackCount: number;
+    filteredWhiteCount: number;
+  };
 }
 
 export function CardFilters({
@@ -45,9 +45,7 @@ export function CardFilters({
           />
           {filters.searchQuery && (
             <button
-              onClick={() =>
-                onFiltersChange({ ...filters, searchQuery: '' })
-              }
+              onClick={() => onFiltersChange({ ...filters, searchQuery: '' })}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
             >
               <X className="h-4 w-4" />
@@ -94,14 +92,20 @@ export function CardFilters({
           </SelectContent>
         </Select>
 
-        <Button variant="ghost" size="icon" onClick={onReset} className="shrink-0">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onReset}
+          className="shrink-0"
+        >
           <X className="h-4 w-4" />
         </Button>
       </div>
 
       <div className="text-sm text-muted-foreground">
-        Showing {stats.filteredBlackCount} black and {stats.filteredWhiteCount} white cards
+        Showing {stats.filteredBlackCount} black and {stats.filteredWhiteCount}{' '}
+        white cards
       </div>
     </div>
-  )
+  );
 }

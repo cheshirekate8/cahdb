@@ -4,7 +4,6 @@
 
 @layer base {
   :root {
-    /* Light mode colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -37,7 +36,6 @@
   }
 
   .dark {
-    /* Dark mode colors (optional for now) */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -80,12 +78,10 @@
       'calt' 1;
   }
 
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -103,12 +99,10 @@
     @apply bg-muted-foreground/50;
   }
 
-  /* Focus styles for accessibility */
   *:focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 
-  /* Reduce motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -122,12 +116,10 @@
 }
 
 @layer utilities {
-  /* Custom utility classes */
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Animation utilities */
   .animate-in {
     animation: enter 200ms ease-out;
   }
@@ -158,25 +150,11 @@
     }
   }
 
-  /* Card game styles - we'll expand these in Step 13 */
   .game-card {
     @apply relative rounded-lg shadow-lg transition-transform duration-200;
   }
 
   .game-card:hover {
     @apply scale-105;
-  }
-
-  /* Drag and drop utilities */
-  .dragging {
-    @apply opacity-50 cursor-grabbing;
-  }
-
-  .drop-zone {
-    @apply border-2 border-dashed border-primary/50 bg-primary/5;
-  }
-
-  .drop-zone-active {
-    @apply border-primary bg-primary/10;
   }
 }
