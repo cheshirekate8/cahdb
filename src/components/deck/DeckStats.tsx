@@ -21,7 +21,6 @@ export function DeckStats() {
     <Card>
       <CardContent className="p-6">
         <div className="space-y-4">
-          {/* Deck Name */}
           <div>
             <h3 className="text-lg font-semibold truncate">
               {currentDeck.name}
@@ -33,7 +32,6 @@ export function DeckStats() {
             )}
           </div>
 
-          {/* Card Counts */}
           <div className="grid grid-cols-3 gap-4">
             <div>
               <p className="text-2xl font-bold">{totalCards}</p>
@@ -49,7 +47,6 @@ export function DeckStats() {
             </div>
           </div>
 
-          {/* Progress Bar */}
           <div>
             <div className="flex justify-between text-xs text-muted-foreground mb-2">
               <span>Capacity</span>
@@ -60,7 +57,6 @@ export function DeckStats() {
             <Progress value={percentFull} className="h-2" />
           </div>
 
-          {/* Validation Status */}
           <div className="flex items-center gap-2 text-sm">
             {isValidDeck ? (
               <>
@@ -75,7 +71,6 @@ export function DeckStats() {
             )}
           </div>
 
-          {/* Badges */}
           <div className="flex gap-2 flex-wrap">
             {isDownloadable && <Badge variant="secondary">Downloadable</Badge>}
             {currentDeck.is_public && <Badge variant="outline">Public</Badge>}

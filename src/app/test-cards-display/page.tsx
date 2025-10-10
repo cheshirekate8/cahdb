@@ -38,7 +38,6 @@ export default function TestCardsDisplayPage() {
           </p>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="p-4 bg-muted rounded-lg">
             <p className="text-sm text-muted-foreground">Total Packs</p>
@@ -60,7 +59,6 @@ export default function TestCardsDisplayPage() {
           </div>
         </div>
 
-        {/* Filter buttons */}
         <div className="flex gap-2 mb-8">
           <Button
             variant={showType === 'both' ? 'default' : 'outline'}
@@ -82,7 +80,6 @@ export default function TestCardsDisplayPage() {
           </Button>
         </div>
 
-        {/* Black Cards Section */}
         {displayBlackCards && (
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-4">
@@ -111,7 +108,6 @@ export default function TestCardsDisplayPage() {
           </div>
         )}
 
-        {/* White Cards Section */}
         {displayWhiteCards && (
           <div>
             <h2 className="text-2xl font-bold mb-4">

@@ -19,7 +19,6 @@ export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8">
       <div className="max-w-4xl w-full space-y-8 text-center">
-        {/* Hero Section */}
         <div className="space-y-4">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
             Build Your Perfect
@@ -32,7 +31,6 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/auth/signup"
@@ -49,7 +47,6 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {/* Feature Highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 text-left">
           <div className="p-6 rounded-lg border bg-card">
             <h3 className="text-xl font-semibold mb-2">🎨 Drag & Drop</h3>
@@ -76,7 +73,6 @@ export default function HomePage() {
 
         <div>Supabase Status: {status}</div>
 
-        {/* Temporary Dev Info */}
         <div className="mt-16 p-4 bg-muted rounded-lg text-sm text-muted-foreground">
           <p>
             🚧 Development Mode: This is a placeholder. Full landing page coming

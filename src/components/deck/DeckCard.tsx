@@ -17,7 +17,6 @@ export function DeckCard({ card, type, index, onRemove }: DeckCardProps) {
       type={type}
       isInDeck={true}
       onRemove={() => onRemove(index)}
-      isDraggable={false}
     />
   );
 }

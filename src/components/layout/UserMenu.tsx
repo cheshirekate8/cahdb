@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { User, LogOut, Settings } from 'lucide-react';
+import { User, LogOut, Settings, PackageOpen } from 'lucide-react';
 import Link from 'next/link';
 
 export function UserMenu() {
@@ -77,7 +77,7 @@ export function UserMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link href="/decks" className="cursor-pointer">
-            <User className="mr-2 h-4 w-4" />
+            <PackageOpen className="mr-2 h-4 w-4" />
             My Decks
           </Link>
         </DropdownMenuItem>

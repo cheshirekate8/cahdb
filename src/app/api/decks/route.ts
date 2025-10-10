@@ -2,12 +2,10 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import type { Deck } from '@/types/deck';
 
-// GET all decks for the current user
 export async function GET() {
   try {
     const supabase = await createClient();
 
-    // Check authentication
     const {
       data: { user },
       error: authError,
@@ -20,7 +18,6 @@ export async function GET() {
       );
     }
 
-    // Fetch user's decks
     const { data: decks, error } = await supabase
       .from('decks')
       .select('*')
@@ -35,7 +32,6 @@ export async function GET() {
       );
     }
 
-    // Parse JSONB fields
     const parsedDecks = decks.map((deck) => ({
       ...deck,
       blackCards: deck.black_cards || [],
@@ -57,12 +53,10 @@ export async function GET() {
   }
 }
 
-// POST - Create new deck
 export async function POST(request: Request) {
   try {
     const supabase = await createClient();
 
-    // Check authentication
     const {
       data: { user },
       error: authError,
@@ -75,11 +69,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // Parse request body
     const body = await request.json();
     const { name, description, blackCards, whiteCards, is_public } = body;
 
-    // Validate
     if (!name || name.trim().length === 0) {
       return NextResponse.json(
         { success: false, error: 'Deck name is required' },
@@ -94,12 +86,10 @@ export async function POST(request: Request) {
       );
     }
 
-    // Generate share ID (random alphanumeric string)
     const shareId =
       Math.random().toString(36).substring(2, 15) +
       Math.random().toString(36).substring(2, 15);
 
-    // Insert deck
     const { data: deck, error } = await supabase
       .from('decks')
       .insert({
@@ -122,7 +112,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Parse response
     const parsedDeck = {
       ...deck,
       blackCards: deck.black_cards || [],

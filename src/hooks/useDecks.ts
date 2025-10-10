@@ -7,7 +7,6 @@ export function useDecks() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch all decks
   const fetchDecks = useCallback(async (): Promise<Deck[]> => {
     try {
       setIsLoading(true);
@@ -31,7 +30,6 @@ export function useDecks() {
     }
   }, []);
 
-  // Save new deck
   const saveDeck = useCallback(
     async (deck: Partial<Deck>): Promise<Deck | null> => {
       try {
@@ -69,7 +67,6 @@ export function useDecks() {
     []
   );
 
-  // Update existing deck
   const updateDeck = useCallback(
     async (id: string, updates: Partial<Deck>): Promise<Deck | null> => {
       try {
@@ -107,7 +104,6 @@ export function useDecks() {
     []
   );
 
-  // Delete deck
   const deleteDeck = useCallback(async (id: string): Promise<boolean> => {
     try {
       setIsLoading(true);

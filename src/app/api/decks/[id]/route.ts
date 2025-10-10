@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
-// GET single deck
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }
@@ -10,7 +9,6 @@ export async function GET(
     const supabase = await createClient();
     const deckId = params.id;
 
-    // Check authentication
     const {
       data: { user },
       error: authError,
@@ -23,7 +21,6 @@ export async function GET(
       );
     }
 
-    // Fetch deck
     const { data: deck, error } = await supabase
       .from('decks')
       .select('*')
@@ -45,7 +42,6 @@ export async function GET(
       );
     }
 
-    // Parse JSONB
     const parsedDeck = {
       ...deck,
       blackCards: deck.black_cards || [],
@@ -67,7 +63,6 @@ export async function GET(
   }
 }
 
-// PUT - Update deck
 export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
@@ -76,7 +71,6 @@ export async function PUT(
     const supabase = await createClient();
     const deckId = params.id;
 
-    // Check authentication
     const {
       data: { user },
       error: authError,
@@ -89,11 +83,9 @@ export async function PUT(
       );
     }
 
-    // Parse body
     const body = await request.json();
     const { name, description, blackCards, whiteCards, is_public } = body;
 
-    // Build update object
     const updates: any = {};
     if (name !== undefined) updates.name = name.trim();
     if (description !== undefined)
@@ -102,7 +94,6 @@ export async function PUT(
     if (whiteCards !== undefined) updates.white_cards = whiteCards;
     if (is_public !== undefined) updates.is_public = is_public;
 
-    // Update deck
     const { data: deck, error } = await supabase
       .from('decks')
       .update(updates)
@@ -119,7 +110,6 @@ export async function PUT(
       );
     }
 
-    // Parse response
     const parsedDeck = {
       ...deck,
       blackCards: deck.black_cards || [],
@@ -141,7 +131,6 @@ export async function PUT(
   }
 }
 
-// DELETE deck
 export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
@@ -150,7 +139,6 @@ export async function DELETE(
     const supabase = await createClient();
     const deckId = params.id;
 
-    // Check authentication
     const {
       data: { user },
       error: authError,
@@ -163,7 +151,6 @@ export async function DELETE(
       );
     }
 
-    // Delete deck
     const { error } = await supabase
       .from('decks')
       .delete()

@@ -29,15 +29,12 @@ export function DeckActions() {
 
       let result;
       if (currentDeck.id) {
-        // Update existing deck
         result = await updateDeck(currentDeck.id, currentDeck);
       } else {
-        // Save new deck
         result = await saveDeck(currentDeck);
       }
 
       if (result) {
-        // Load the saved deck (updates ID and marks as not modified)
         loadDeck(result);
         alert(`✓ Deck "${result.name}" saved successfully!`);
       } else {
@@ -85,7 +82,6 @@ export function DeckActions() {
 
   return (
     <div className="flex flex-wrap gap-2">
-      {/* Save Button */}
       <Button
         onClick={handleSave}
         disabled={!canDownload() || isSaving}
@@ -95,7 +91,6 @@ export function DeckActions() {
         {isSaving ? 'Saving...' : currentDeck.id ? 'Update Deck' : 'Save Deck'}
       </Button>
 
-      {/* Download Button */}
       <Button
         variant="outline"
         onClick={handleDownload}
@@ -106,7 +101,6 @@ export function DeckActions() {
         Download
       </Button>
 
-      {/* Clear Deck Button */}
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <Button variant="destructive" className="flex-1 sm:flex-none">
