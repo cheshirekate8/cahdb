@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { BlackCard, WhiteCard, CardType } from '@/types/card';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { cardHover } from '@/lib/animations';
 import Image from 'next/image';
 
 interface GameCardProps {
@@ -31,25 +32,29 @@ export function GameCard({
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
+      variants={cardHover}
+      initial="rest"
       onClick={onClick}
-      className={cn('relative group', 'cursor-pointer', className)}
+      className={cn('relative group', className)}
     >
       <div
         className={cn(
           'game-card relative w-full h-64 p-6 rounded-xl shadow-lg',
           'flex flex-col justify-between',
-          'transition-all duration-200',
+          'transition-shadow duration-200',
           isBlack
             ? 'bg-black text-white border-2 border-gray-800'
             : 'bg-white text-black border-2 border-gray-200',
           isSelected && 'ring-4 ring-primary ring-offset-2'
         )}
       >
+        {/* Remove button */}
         {isInDeck && onRemove && (
-          <button
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             onClick={(e) => {
               e.stopPropagation();
               onRemove();
@@ -63,41 +68,41 @@ export function GameCard({
             aria-label="Remove card"
           >
             <X className="h-4 w-4" />
-          </button>
+          </motion.button>
         )}
 
+        {/* Card text */}
         <div className="flex-1 flex items-center justify-center">
           <p
             className={cn(
-              'text-lg font-medium leading-relaxed text-center',
-              'line-clamp-6'
+              'text-lg font-medium leading-relaxed text-center line-clamp-6'
             )}
           >
             {card.text}
           </p>
         </div>
 
+        {/* Footer */}
         <div className="flex items-end justify-between mt-4">
           <div className="text-xs opacity-60">Pack {card.pack}</div>
-
-          {pick !== undefined && pick > 1 && (
-            <div
+          {/* {pick !== undefined && pick > 1 && (
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
               className={cn(
                 'px-2 py-1 rounded text-xs font-bold',
                 isBlack ? 'bg-white text-black' : 'bg-black text-white'
               )}
             >
               PICK {pick}
-            </div>
-          )}
-
+            </motion.div>
+          )} */}
           <div className="relative w-8 h-8 opacity-60">
             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-          </div>
+          </div>{' '}
         </div>
       </div>
-
-      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-10 bg-primary rounded-xl transition-opacity" />
     </motion.div>
   );
 }
