@@ -56,7 +56,7 @@ export function useCards() {
   }, [allPacks]);
 
   const filteredBlackCards = useMemo(() => {
-    let filtered = [...blackCards];
+    let filtered = [...blackCards].slice(0, 20);
 
     if (filters.searchQuery) {
       const query = filters.searchQuery.toLowerCase();
@@ -82,7 +82,7 @@ export function useCards() {
   }, [blackCards, filters]);
 
   const filteredWhiteCards = useMemo(() => {
-    let filtered = [...whiteCards];
+    let filtered = [...whiteCards].slice(0, 20);
 
     if (filters.searchQuery) {
       const query = filters.searchQuery.toLowerCase();

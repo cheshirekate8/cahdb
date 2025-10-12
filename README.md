@@ -42,3 +42,7 @@ TO FIX
 - drag and drop
 - toaster alerts
 - cart functionality 
+- fix localStorage hydration warning
+- Cards currently sliced, make a "Load more..." button
+- Fix mobile
+- Fix pick 2 bubble

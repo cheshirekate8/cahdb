@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { BlackCard, WhiteCard, CardType } from '@/types/card';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { cardHover } from '@/lib/animations';
+import { buttonTap, cardHover } from '@/lib/animations';
 import Image from 'next/image';
 
 interface GameCardProps {
@@ -36,6 +36,7 @@ export function GameCard({
       initial="rest"
       onClick={onClick}
       className={cn('relative group', className)}
+      whileTap={buttonTap}
     >
       <div
         className={cn(
@@ -48,6 +49,20 @@ export function GameCard({
           isSelected && 'ring-4 ring-primary ring-offset-2'
         )}
       >
+        {pick !== undefined && pick > 1 && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+            className={cn(
+              'text-center whitespace-nowrap max-w-min px-2 py-1 rounded text-xs font-bold',
+              isBlack ? 'bg-white text-black' : 'bg-black text-white'
+            )}
+          >
+            PICK {pick}
+          </motion.div>
+        )}
+
         {/* Remove button */}
         {isInDeck && onRemove && (
           <motion.button
@@ -85,19 +100,6 @@ export function GameCard({
         {/* Footer */}
         <div className="flex items-end justify-between mt-4">
           <div className="text-xs opacity-60">Pack {card.pack}</div>
-          {/* {pick !== undefined && pick > 1 && (
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-              className={cn(
-                'px-2 py-1 rounded text-xs font-bold',
-                isBlack ? 'bg-white text-black' : 'bg-black text-white'
-              )}
-            >
-              PICK {pick}
-            </motion.div>
-          )} */}
           <div className="relative w-8 h-8 opacity-60">
             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
           </div>{' '}

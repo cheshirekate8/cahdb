@@ -18,7 +18,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 export default function DecksPage() {
   const [decks, setDecks] = useState<Deck[]>([]);
   const [deckToDelete, setDeckToDelete] = useState<string | null>(null);
@@ -26,13 +27,12 @@ export default function DecksPage() {
   const { fetchDecks, deleteDeck, updateDeck, isLoading } = useDecks();
 
   useEffect(() => {
+    const loadDecks = async () => {
+      const fetchedDecks = await fetchDecks();
+      setDecks(fetchedDecks);
+    };
     loadDecks();
-  }, []);
-
-  const loadDecks = async () => {
-    const fetchedDecks = await fetchDecks();
-    setDecks(fetchedDecks);
-  };
+  }, [fetchDecks]);
 
   const handleDelete = async () => {
     if (!deckToDelete) return;
@@ -79,7 +79,12 @@ export default function DecksPage() {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto p-4 md:p-8">
-        <div className="flex items-center justify-between mb-8">
+        <motion.div
+          className="flex items-center justify-between mb-8"
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+        >
           <div>
             <h1 className="text-4xl font-bold mb-2">My Decks</h1>
             <p className="text-muted-foreground">
@@ -93,35 +98,34 @@ export default function DecksPage() {
               New Deck
             </Link>
           </Button>
-        </div>
+        </motion.div>
 
         {decks.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-16 text-center">
-            <div className="rounded-full bg-muted p-6 mb-4">
-              <Plus className="h-12 w-12 text-muted-foreground" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">No decks yet</h3>
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Start building your first deck to save and share it with others
-            </p>
-            <Button asChild>
-              <Link href="/builder">
-                <Plus className="h-4 w-4 mr-2" />
-                Create Your First Deck
-              </Link>
-            </Button>
-          </div>
+          <motion.div
+            className="flex flex-col items-center justify-center py-16 text-center"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* ... empty state */}
+          </motion.div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
             {decks.map((deck) => (
-              <DeckGridCard
-                key={deck.id}
-                deck={deck}
-                onDelete={(id) => setDeckToDelete(id)}
-                onShare={handleShare}
-              />
+              <motion.div key={deck.id} variants={staggerItem}>
+                <DeckGridCard
+                  deck={deck}
+                  onDelete={(id) => setDeckToDelete(id)}
+                  onShare={handleShare}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         <AlertDialog

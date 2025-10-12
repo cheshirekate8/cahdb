@@ -1,32 +1,37 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { motion } from 'framer-motion';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Edit, Trash2, Share2, MoreVertical, Lock, Globe } from 'lucide-react'
-import Link from 'next/link'
-import type { Deck } from '@/types/deck'
-import { cardHover } from '@/lib/animations'
+} from '@/components/ui/dropdown-menu';
+import { Edit, Trash2, Share2, MoreVertical, Lock, Globe } from 'lucide-react';
+import Link from 'next/link';
+import type { Deck } from '@/types/deck';
+import { cardHover } from '@/lib/animations';
 
 interface DeckGridCardProps {
-  deck: Deck
-  onDelete?: (id: string) => void
-  onShare?: (deck: Deck) => void
+  deck: Deck;
+  onDelete?: (id: string) => void;
+  onShare?: (deck: Deck) => void;
 }
 
 export function DeckGridCard({ deck, onDelete, onShare }: DeckGridCardProps) {
-  const totalCards = deck.blackCards.length + deck.whiteCards.length
-  const createdDate = deck.created_at 
+  const totalCards = deck.blackCards.length + deck.whiteCards.length;
+  const createdDate = deck.created_at
     ? new Date(deck.created_at).toLocaleDateString()
-    : 'Unknown'
+    : 'Unknown';
 
   return (
     <motion.div
@@ -46,7 +51,7 @@ export function DeckGridCard({ deck, onDelete, onShare }: DeckGridCardProps) {
                 </p>
               )}
             </div>
-            
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="shrink-0 ml-2">
@@ -68,7 +73,7 @@ export function DeckGridCard({ deck, onDelete, onShare }: DeckGridCardProps) {
                 )}
                 <DropdownMenuSeparator />
                 {onDelete && (
-                  <DropdownMenuItem 
+                  <DropdownMenuItem
                     onClick={() => onDelete(deck.id!)}
                     className="text-destructive"
                   >
@@ -116,5 +121,5 @@ export function DeckGridCard({ deck, onDelete, onShare }: DeckGridCardProps) {
         </CardFooter>
       </Card>
     </motion.div>
-  )
+  );
 }

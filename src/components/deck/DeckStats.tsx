@@ -1,30 +1,26 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { useDeckStore } from '@/store/deckStore'
-import { DECK_CONSTRAINTS } from '@/types/deck'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { CheckCircle2, AlertCircle } from 'lucide-react'
-import { Progress } from '@/components/ui/progress'
-import { fadeInUp } from '@/lib/animations'
+import { motion } from 'framer-motion';
+import { useDeckStore } from '@/store/deckStore';
+import { DECK_CONSTRAINTS } from '@/types/deck';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { Progress } from '@/components/ui/progress';
+import { fadeInUp } from '@/lib/animations';
 
 export function DeckStats() {
-  const { currentDeck, getTotalCards, isValid, canDownload } = useDeckStore()
-  
-  const totalCards = getTotalCards()
-  const blackCount = currentDeck.blackCards.length
-  const whiteCount = currentDeck.whiteCards.length
-  const percentFull = (totalCards / DECK_CONSTRAINTS.MAX_CARDS) * 100
-  const isValidDeck = isValid()
-  const isDownloadable = canDownload()
+  const { currentDeck, getTotalCards, isValid, canDownload } = useDeckStore();
+
+  const totalCards = getTotalCards();
+  const blackCount = currentDeck.blackCards.length;
+  const whiteCount = currentDeck.whiteCards.length;
+  const percentFull = (totalCards / DECK_CONSTRAINTS.MAX_CARDS) * 100;
+  const isValidDeck = isValid();
+  const isDownloadable = canDownload();
 
   return (
-    <motion.div
-      variants={fadeInUp}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.div variants={fadeInUp} initial="hidden" animate="visible">
       <Card>
         <CardContent className="p-6">
           <div className="space-y-4">
@@ -34,7 +30,9 @@ export function DeckStats() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <h3 className="text-lg font-semibold truncate">{currentDeck.name}</h3>
+              <h3 className="text-lg font-semibold truncate">
+                {currentDeck.name}
+              </h3>
               {currentDeck.description && (
                 <p className="text-sm text-muted-foreground truncate">
                   {currentDeck.description}
@@ -43,7 +41,7 @@ export function DeckStats() {
             </motion.div>
 
             {/* Card Counts */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-3 gap-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -71,13 +69,15 @@ export function DeckStats() {
             >
               <div className="flex justify-between text-xs text-muted-foreground mb-2">
                 <span>Capacity</span>
-                <span>{totalCards} / {DECK_CONSTRAINTS.MAX_CARDS}</span>
+                <span>
+                  {totalCards} / {DECK_CONSTRAINTS.MAX_CARDS}
+                </span>
               </div>
               <Progress value={percentFull} className="h-2" />
             </motion.div>
 
             {/* Validation Status */}
-            <motion.div 
+            <motion.div
               className="flex items-center gap-2 text-sm"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -97,7 +97,7 @@ export function DeckStats() {
             </motion.div>
 
             {/* Badges */}
-            <motion.div 
+            <motion.div
               className="flex gap-2 flex-wrap"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -123,5 +123,5 @@ export function DeckStats() {
         </CardContent>
       </Card>
     </motion.div>
-  )
+  );
 }

@@ -16,6 +16,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
+import { motion } from 'framer-motion';
+import { buttonTap } from '@/lib/animations';
 
 export function DeckActions() {
   const { currentDeck, clearDeck, canDownload, isModified, loadDeck } =
@@ -70,9 +72,7 @@ export function DeckActions() {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 
-    toast.success('Deck downloaded!', {
-      description: 'Your deck has been downloaded as JSON.',
-    });
+    alert('✓ Deck downloaded!');
   };
 
   const handleClear = () => {
@@ -82,31 +82,44 @@ export function DeckActions() {
 
   return (
     <div className="flex flex-wrap gap-2">
-      <Button
-        onClick={handleSave}
-        disabled={!canDownload() || isSaving}
-        className="flex-1 sm:flex-none"
-      >
-        <Save className="h-4 w-4 mr-2" />
-        {isSaving ? 'Saving...' : currentDeck.id ? 'Update Deck' : 'Save Deck'}
-      </Button>
+      {/* Save Button */}
+      <motion.div whileTap={buttonTap} className="flex-1 sm:flex-none">
+        <Button
+          onClick={handleSave}
+          disabled={!canDownload() || isSaving}
+          className="w-full"
+        >
+          <Save className="h-4 w-4 mr-2" />
+          {isSaving
+            ? 'Saving...'
+            : currentDeck.id
+              ? 'Update Deck'
+              : 'Save Deck'}
+        </Button>
+      </motion.div>
 
-      <Button
-        variant="outline"
-        onClick={handleDownload}
-        disabled={!canDownload()}
-        className="flex-1 sm:flex-none"
-      >
-        <Download className="h-4 w-4 mr-2" />
-        Download
-      </Button>
+      {/* Download Button */}
+      <motion.div whileTap={buttonTap} className="flex-1 sm:flex-none">
+        <Button
+          variant="outline"
+          onClick={handleDownload}
+          disabled={!canDownload()}
+          className="w-full"
+        >
+          <Download className="h-4 w-4 mr-2" />
+          Download
+        </Button>
+      </motion.div>
 
+      {/* Clear Deck Button */}
       <AlertDialog>
         <AlertDialogTrigger asChild>
-          <Button variant="destructive" className="flex-1 sm:flex-none">
-            <Trash2 className="h-4 w-4 mr-2" />
-            Clear
-          </Button>
+          <motion.div whileTap={buttonTap} className="flex-1 sm:flex-none">
+            <Button variant="destructive" className="w-full">
+              <Trash2 className="h-4 w-4 mr-2" />
+              Clear
+            </Button>
+          </motion.div>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>

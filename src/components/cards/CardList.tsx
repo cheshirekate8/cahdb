@@ -1,8 +1,10 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { GameCard } from './GameCard';
 import { CardSkeleton } from './CardSkeleton';
 import type { BlackCard, WhiteCard, CardType } from '@/types/card';
+import { staggerContainer, staggerItem } from '@/lib/animations';
 
 interface CardListProps {
   cards: (BlackCard | WhiteCard)[];
@@ -29,22 +31,35 @@ export function CardList({
 
   if (cards.length === 0) {
     return (
-      <div className="text-center py-12 text-muted-foreground">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="text-center py-12 text-muted-foreground"
+      >
         No cards found
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    >
       {cards.map((card, index) => (
-        <GameCard
+        <motion.div
           key={`${type}-${card.text}-${index}`}
-          card={card}
-          type={type}
-          onClick={() => onCardClick?.(card)}
-        />
+          variants={staggerItem}
+        >
+          <GameCard
+            card={card}
+            type={type}
+            onClick={() => onCardClick?.(card)}
+          />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
