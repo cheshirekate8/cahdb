@@ -38,5 +38,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 TO FIX
 - Instead of "Pack 0" use name of pack
+- 20 black and 40 whote cards maximum, instead of 1000 cards
 - drag and drop
 - toaster alerts
+- cart functionality 
