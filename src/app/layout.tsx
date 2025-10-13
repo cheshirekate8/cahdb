@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { UserMenu } from '@/components/layout/UserMenu';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -70,14 +72,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <div className="min-h-screen bg-background">
-          <header className="border-b">
-            <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-              <div className="text-xl font-bold">Deck Builder</div>
-              <UserMenu />
-            </div>
-          </header>
-
+          <Header />
           <main>{children}</main>
+          <Footer />
         </div>
       </body>
     </html>

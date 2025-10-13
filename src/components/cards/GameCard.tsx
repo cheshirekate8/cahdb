@@ -55,7 +55,7 @@ export function GameCard({
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
             className={cn(
-              'text-center whitespace-nowrap max-w-min px-2 py-1 rounded text-xs font-bold',
+              'absolute top-2 left-2 px-2 py-1 rounded text-xs font-bold',
               isBlack ? 'bg-white text-black' : 'bg-black text-white'
             )}
           >

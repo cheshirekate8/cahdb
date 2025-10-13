@@ -38,11 +38,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 TO FIX
 - Instead of "Pack 0" use name of pack
-- 20 black and 40 whote cards maximum, instead of 1000 cards
+- 20 black and 40 white cards maximum, instead of 1000 cards
 - drag and drop
 - toaster alerts
 - cart functionality 
 - fix localStorage hydration warning
-- Cards currently sliced, make a "Load more..." button
+- Cards currently sliced to 20, make a "Load more..." button
 - Fix mobile
-- Fix pick 2 bubble
+-Fix Double deck builder header

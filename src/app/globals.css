@@ -157,4 +157,18 @@
   .game-card:hover {
     @apply scale-105;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  *:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  @supports (backdrop-filter: blur(10px)) {
+    .backdrop-blur-header {
+      backdrop-filter: blur(10px);
+    }
+  }
 }
