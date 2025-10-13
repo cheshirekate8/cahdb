@@ -78,7 +78,7 @@ export function HeroSection() {
           >
             <Button size="lg" asChild className="text-lg px-8 py-6">
               <Link href="/auth/signup">
-                Get Started Free
+                Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
