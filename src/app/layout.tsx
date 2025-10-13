@@ -1,9 +1,8 @@
+import { Footer } from '@/components/layout/Footer';
+import { Header } from '@/components/layout/Header';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { UserMenu } from '@/components/layout/UserMenu';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     description:
       'Build, save, and share custom card decks with our intuitive deck builder.',
     images: ['/og-image.jpg'],
-    creator: '@yourusername',
+    creator: '@cheshirekate8',
   },
   robots: {
     index: true,

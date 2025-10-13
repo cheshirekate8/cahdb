@@ -45,4 +45,12 @@ TO FIX
 - fix localStorage hydration warning
 - Cards currently sliced to 20, make a "Load more..." button
 - Fix mobile
--Fix Double deck builder header
+- Fix footer
+  - connect section
+  - all rights reserved? 
+- Change on homepage
+  - Copy
+  - the faded footer
+  - navy stats section
+  - second CTA 
+- Fix all email links

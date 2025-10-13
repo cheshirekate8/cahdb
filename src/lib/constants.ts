@@ -30,6 +30,6 @@ export const API_ENDPOINTS = {
 
 export const EXTERNAL_LINKS = {
   PORTFOLIO:
-    process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://your-portfolio.com',
-  GITHUB: 'https://github.com/yourusername/deck-builder',
+    process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://cheshirekate8.github.io/',
+  GITHUB: 'https://github.com/cheshirekate8/cahdb',
 } as const;
