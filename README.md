@@ -42,15 +42,15 @@ TO FIX
 - drag and drop
 - toaster alerts
 - cart functionality 
-- fix localStorage hydration warning
-- Cards currently sliced to 20, make a "Load more..." button
+- fix localStorage hydration warning, only on refresh 
+- Cards currently sliced to 20, make a "Load more..." button, card pagination
 - Fix mobile
 - Fix footer
   - connect section
   - all rights reserved? 
-- Change on homepage
-  - Copy
-  - the faded footer
-  - navy stats section
-  - second CTA 
-- Fix all email links
+- Get supabase calls for 
+  - how many decks created
+  - how many users
+  - shared decks
+  - downloads
+- Remove all irrelevant commented out code

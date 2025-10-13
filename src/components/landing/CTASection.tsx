@@ -20,10 +20,10 @@ export function CTASection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Ready to Build Your First Deck?
           </h2>
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+          {/* <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
             Join hundreds of creators who are already building amazing decks.
             Get started in seconds, no credit card required.
-          </p>
+          </p> */}
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild className="text-lg px-8 py-6">
@@ -44,9 +44,9 @@ export function CTASection() {
           </div>
 
           {/* Trust Badge */}
-          <p className="mt-8 text-sm text-muted-foreground">
+          {/* <p className="mt-8 text-sm text-muted-foreground">
             ✓ Free forever · ✓ No credit card required · ✓ Start in seconds
-          </p>
+          </p> */}
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { HeroSection } from '@/components/landing/HeroSection';
 import { FeaturesSection } from '@/components/landing/FeaturesSection';
-import { StatsSection } from '@/components/landing/StatsSection';
+// import { StatsSection } from '@/components/landing/StatsSection';
 import { CTASection } from '@/components/landing/CTASection';
 import { HowItWorks } from '@/components/landing/HowItWorks';
 
@@ -10,7 +10,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturesSection />
       <HowItWorks />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <CTASection />
     </div>
   );

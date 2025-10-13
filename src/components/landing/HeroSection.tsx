@@ -68,7 +68,7 @@ export function HeroSection() {
             className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto"
           >
             Build, save, and share custom card decks with our intuitive
-            drag-and-drop builder. Join thousands of creators.
+            click-to-add builder.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -98,7 +98,7 @@ export function HeroSection() {
             variants={staggerItem}
             className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
           >
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
                 {[1, 2, 3].map((i) => (
                   <div
@@ -111,7 +111,7 @@ export function HeroSection() {
             </div>
             <span>•</span>
             <span>1000+ decks created</span>
-            <span>•</span>
+            <span>•</span> */}
             <span>100% free</span>
           </motion.div>
         </motion.div>
