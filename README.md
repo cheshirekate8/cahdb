@@ -45,9 +45,6 @@ TO FIX
 - fix localStorage hydration warning, only on refresh 
 - Cards currently sliced to 20, make a "Load more..." button, card pagination
 - Fix mobile
-- Fix footer
-  - connect section
-  - all rights reserved? 
 - Get supabase calls for 
   - how many decks created
   - how many users
