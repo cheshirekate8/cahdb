@@ -47,5 +47,5 @@ TO FIX
   - how many users
   - shared decks
   - downloads
-- Consistent Card sizes
+- Consistent Card sizes, 5/7
 - Better drawer button, too basic
