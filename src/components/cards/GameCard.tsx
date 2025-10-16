@@ -10,6 +10,7 @@ import Image from 'next/image';
 interface GameCardProps {
   card: BlackCard | WhiteCard;
   type: CardType;
+  packName?: string | undefined; // Be very explicit
   isSelected?: boolean;
   isInDeck?: boolean;
   onClick?: () => void;
@@ -20,6 +21,7 @@ interface GameCardProps {
 export function GameCard({
   card,
   type,
+  packName,
   isSelected = false,
   isInDeck = false,
   onClick,
@@ -99,7 +101,9 @@ export function GameCard({
 
         {/* Footer */}
         <div className="flex items-end justify-between mt-4">
-          <div className="text-xs opacity-60">Pack {card.pack}</div>
+          <div className="text-xs opacity-60">
+            {packName || `Pack ${card.pack}`}
+          </div>
           <div className="relative w-8 h-8 opacity-60">
             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
           </div>{' '}

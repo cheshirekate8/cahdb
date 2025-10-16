@@ -8,15 +8,23 @@ interface DeckCardProps {
   type: CardType;
   index: number;
   onRemove: (index: number) => void;
+  packName: string | undefined;
 }
 
-export function DeckCard({ card, type, index, onRemove }: DeckCardProps) {
+export function DeckCard({
+  card,
+  type,
+  index,
+  onRemove,
+  packName,
+}: DeckCardProps) {
   return (
     <GameCard
       card={card}
       type={type}
       isInDeck={true}
       onRemove={() => onRemove(index)}
+      packName={packName}
     />
   );
 }

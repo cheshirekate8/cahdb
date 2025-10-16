@@ -11,11 +11,13 @@ interface CardListProps {
   type: CardType;
   isLoading?: boolean;
   onCardClick?: (card: BlackCard | WhiteCard) => void;
+  packLookup?: Map<number, string>;
 }
 
 export function CardList({
   cards,
   type,
+  packLookup,
   isLoading = false,
   onCardClick,
 }: CardListProps) {
@@ -56,6 +58,7 @@ export function CardList({
           <GameCard
             card={card}
             type={type}
+            packName={packLookup?.get(card.pack)} // Pass pack name
             onClick={() => onCardClick?.(card)}
           />
         </motion.div>

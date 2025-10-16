@@ -5,9 +5,10 @@ import { DeckCard } from './DeckCard';
 import { CardType } from '@/types/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { PackagePlus } from 'lucide-react';
-
+import { useCards } from '@/hooks/useCards';
 export function DeckArea() {
   const { currentDeck, removeBlackCard, removeWhiteCard } = useDeckStore();
+  const { packLookup } = useCards();
 
   const blackCards = currentDeck.blackCards;
   const whiteCards = currentDeck.whiteCards;
@@ -49,6 +50,7 @@ export function DeckArea() {
                   type={CardType.BLACK}
                   index={index}
                   onRemove={removeBlackCard}
+                  packName={packLookup?.get(card.pack) || undefined}
                 />
               ))}
             </div>

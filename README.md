@@ -51,3 +51,4 @@ TO FIX
   - shared decks
   - downloads
 - Remove all irrelevant commented out code
+- Show/Hide deck doesn't work (pops up in bottom)

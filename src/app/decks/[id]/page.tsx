@@ -34,6 +34,7 @@ export default function EditDeckPage() {
     resetFilters,
     allPacks,
     stats,
+    packLookup,
   } = useCards();
 
   const { addBlackCard, addWhiteCard, loadDeck } = useDeckStore();
@@ -128,6 +129,7 @@ export default function EditDeckPage() {
                     onCardClick={(card) =>
                       handleCardClick(card, CardType.BLACK)
                     }
+                    packLookup={packLookup}
                   />
                 </div>
               )}
@@ -144,6 +146,7 @@ export default function EditDeckPage() {
                     onCardClick={(card) =>
                       handleCardClick(card, CardType.WHITE)
                     }
+                    packLookup={packLookup}
                   />
                 </div>
               )}

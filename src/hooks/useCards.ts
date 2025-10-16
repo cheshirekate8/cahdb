@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import type { CardPack, BlackCard, WhiteCard, CardFilters } from '@/types/card';
+import { createPackLookup } from '@/lib/utils/packHelpers';
 
 const defaultFilters: CardFilters = {
   searchQuery: '',
@@ -118,6 +119,10 @@ export function useCards() {
     [allPacks, blackCards, whiteCards, filteredBlackCards, filteredWhiteCards]
   );
 
+  const packLookup = useMemo(() => {
+    return createPackLookup(allPacks);
+  }, [allPacks]);
+
   return {
     allPacks,
     blackCards,
@@ -130,5 +135,6 @@ export function useCards() {
     setFilters: setFiltersState,
     resetFilters: () => setFiltersState(defaultFilters),
     stats,
+    packLookup,
   };
 }

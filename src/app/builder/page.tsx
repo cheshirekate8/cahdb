@@ -27,6 +27,7 @@ export default function BuilderPage() {
     resetFilters,
     allPacks,
     stats,
+    packLookup,
   } = useCards();
 
   const { addBlackCard, addWhiteCard } = useDeckStore();
@@ -83,6 +84,7 @@ export default function BuilderPage() {
                     onCardClick={(card) =>
                       handleCardClick(card, CardType.BLACK)
                     }
+                    packLookup={packLookup}
                   />
                 </div>
               )}
@@ -99,6 +101,7 @@ export default function BuilderPage() {
                     onCardClick={(card) =>
                       handleCardClick(card, CardType.WHITE)
                     }
+                    packLookup={packLookup}
                   />
                 </div>
               )}
