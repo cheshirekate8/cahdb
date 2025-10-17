@@ -6,6 +6,7 @@ import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { buttonTap, cardHover } from '@/lib/animations';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 interface GameCardProps {
   card: BlackCard | WhiteCard;
@@ -31,6 +32,46 @@ export function GameCard({
   const isBlack = type === CardType.BLACK;
   const pick = 'pick' in card ? card.pick : undefined;
 
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const [fontSize, setFontSize] = useState('text-lg');
+
+  // Adjust font size to fit text
+  useEffect(() => {
+    if (!textRef.current) return;
+
+    const element = textRef.current;
+    const container = element.parentElement;
+    if (!container) return;
+
+    // Reset to largest size first
+    element.className = cn(
+      'font-medium leading-relaxed text-center transition-all',
+      'text-lg'
+    );
+
+    // Check if text overflows
+    if (element.scrollHeight > container.clientHeight) {
+      element.className = cn(
+        'font-medium leading-relaxed text-center transition-all',
+        'text-base'
+      );
+    }
+
+    if (element.scrollHeight > container.clientHeight) {
+      element.className = cn(
+        'font-medium leading-relaxed text-center transition-all',
+        'text-sm'
+      );
+    }
+
+    if (element.scrollHeight > container.clientHeight) {
+      element.className = cn(
+        'font-medium leading-relaxed text-center transition-all',
+        'text-xs'
+      );
+    }
+  }, [card.text]);
+
   return (
     <motion.div
       layout
@@ -42,7 +83,7 @@ export function GameCard({
     >
       <div
         className={cn(
-          'game-card relative w-full h-64 p-6 rounded-xl shadow-lg',
+          'game-card relative max-w-40 aspect-[5/7] p-6 rounded-xl shadow-lg',
           'flex flex-col justify-between',
           'transition-shadow duration-200',
           isBlack
@@ -87,23 +128,21 @@ export function GameCard({
           </motion.button>
         )}
 
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center overflow-hidden">
           <p
-            className={cn(
-              'text-lg font-medium leading-relaxed text-center line-clamp-6'
-            )}
+            ref={textRef}
+            className="font-medium leading-relaxed text-center text-lg"
           >
             {card.text}
           </p>
         </div>
 
-        <div className="flex items-end justify-between mt-4">
+        <div className="flex items-end justify-between mt-4"></div>
+
+        <div className="flex items-end justify-between text-[10px] opacity-80 gap-1 min-h-[20px]">
           <div className="text-xs opacity-60">
             {packName || `Pack ${card.pack}`}
           </div>
-          <div className="relative w-8 h-8 opacity-60">
-            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
-          </div>{' '}
         </div>
       </div>
     </motion.div>

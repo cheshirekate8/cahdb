@@ -37,15 +37,27 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 TO FIX
-- drag and drop
+- Card aesthetics fixes
+  - Cards currently sliced to 20, make a "Load more..." button, card pagination
+  - Center grids with consistent gaps
 - toaster alerts
-- cart functionality 
-- fix localStorage hydration warning, only on refresh 
-- Cards currently sliced to 20, make a "Load more..." button, card pagination
+- drag and drop
 - Get supabase calls for 
   - how many decks created
   - how many users
   - shared decks
   - downloads
-- Consistent Card sizes, 5/7
 - Better drawer button, too basic
+- fix localStorage hydration warning, only on refresh 
+- Reveiw every file for consistency
+- cart functionality?
+- Upload custom decks from json (copy technically works for that, but I want to download/upload)
+- About Page
+  - Get rid of why this project
+  - Rethink project highlights
+  - Reconsider Development journey
+  - Make languages used cooler, with icons and stuff
+- Landing Page
+- Light Dark Mode
+- Cute 404 page
+- Testing

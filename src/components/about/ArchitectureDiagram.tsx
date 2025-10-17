@@ -46,7 +46,7 @@ export function ArchitectureDiagram() {
 
             <div className="space-y-4">
               <h4 className="font-semibold text-center">API Layer</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
                 <div className="p-4 rounded-lg bg-green-50 dark:bg-green-950 border-2 border-green-200 dark:border-green-800">
                   <p className="font-medium text-center">Next.js API Routes</p>
                   <p className="text-xs text-center text-muted-foreground mt-1">

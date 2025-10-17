@@ -163,7 +163,7 @@ export default function SharedDeckPage() {
               <h2 className="text-2xl font-bold mb-4">
                 Black Cards ({deck.blackCards.length})
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {deck.blackCards.map((card, index) => (
                   <GameCard
                     key={`black-${index}`}
@@ -180,7 +180,7 @@ export default function SharedDeckPage() {
               <h2 className="text-2xl font-bold mb-4">
                 White Cards ({deck.whiteCards.length})
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {deck.whiteCards.map((card, index) => (
                   <GameCard
                     key={`white-${index}`}

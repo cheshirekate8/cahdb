@@ -42,7 +42,7 @@ export function DeckArea() {
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground">
               BLACK CARDS ({blackCards.length})
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               {blackCards.map((card, index) => (
                 <DeckCard
                   key={`black-${index}`}
@@ -62,7 +62,7 @@ export function DeckArea() {
             <h3 className="text-sm font-semibold mb-3 text-muted-foreground">
               WHITE CARDS ({whiteCards.length})
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
               {whiteCards.map((card, index) => (
                 <DeckCard
                   key={`white-${index}`}
@@ -70,6 +70,7 @@ export function DeckArea() {
                   type={CardType.WHITE}
                   index={index}
                   onRemove={removeWhiteCard}
+                  packName={packLookup?.get(card.pack)}
                 />
               ))}
             </div>
@@ -83,7 +84,7 @@ export function DeckArea() {
             No black cards in deck yet
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
             {blackCards.map((card, index) => (
               <DeckCard
                 key={`black-${index}`}
@@ -91,6 +92,7 @@ export function DeckArea() {
                 type={CardType.BLACK}
                 index={index}
                 onRemove={removeBlackCard}
+                packName={packLookup?.get(card.pack)}
               />
             ))}
           </div>
@@ -103,7 +105,7 @@ export function DeckArea() {
             No white cards in deck yet
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
             {whiteCards.map((card, index) => (
               <DeckCard
                 key={`white-${index}`}
@@ -111,6 +113,7 @@ export function DeckArea() {
                 type={CardType.WHITE}
                 index={index}
                 onRemove={removeWhiteCard}
+                packName={packLookup?.get(card.pack)}
               />
             ))}
           </div>
