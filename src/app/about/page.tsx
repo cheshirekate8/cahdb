@@ -17,7 +17,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-16 space-y-20">
-        {/* Hero Section */}
         <section className="text-center space-y-4 max-w-3xl mx-auto">
           <h1 className="text-5xl font-bold">About Deck Builder</h1>
           <p className="text-xl text-muted-foreground">
@@ -45,7 +44,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Features */}
         <section className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-2">Key Features</h2>
@@ -56,7 +54,6 @@ export default function AboutPage() {
           <FeaturesShowcase />
         </section>
 
-        {/* Tech Stack */}
         <section className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-2">Tech Stack</h2>
@@ -67,7 +64,6 @@ export default function AboutPage() {
           <TechStackGrid />
         </section>
 
-        {/* Architecture */}
         <section className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-2">Architecture</h2>
@@ -78,7 +74,6 @@ export default function AboutPage() {
           <ArchitectureDiagram />
         </section>
 
-        {/* Development Process */}
         <section className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-2">Development Journey</h2>
@@ -91,7 +86,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Project Stats */}
         <section className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-2">Project Highlights</h2>
@@ -116,7 +110,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Why This Project */}
         <section className="max-w-3xl mx-auto space-y-6">
           <h2 className="text-3xl font-bold text-center">Why This Project?</h2>
           <div className="space-y-4 text-muted-foreground">
@@ -140,7 +133,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Contact/Links */}
         <section className="text-center space-y-6 py-12 border-t">
           <h2 className="text-2xl font-bold">Want to Learn More?</h2>
           <div className="flex gap-4 justify-center flex-wrap">

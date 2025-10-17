@@ -18,14 +18,12 @@ export function MobileNav() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  // Filter links based on auth status
   const visibleLinks = navigationLinks.filter(
     (link) => !link.requiresAuth || isAuthenticated
   );
 
   return (
     <div className="lg:hidden">
-      {/* Hamburger Button */}
       <Button
         variant="ghost"
         size="icon"
@@ -35,7 +33,6 @@ export function MobileNav() {
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </Button>
 
-      {/* Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -48,7 +45,6 @@ export function MobileNav() {
               onClick={closeMenu}
             />
 
-            {/* Slide-out Menu */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -56,7 +52,6 @@ export function MobileNav() {
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 bottom-0 w-64 bg-background border-l shadow-xl z-50 p-6"
             >
-              {/* Close Button */}
               <div className="flex justify-end mb-8">
                 <Button
                   variant="ghost"
@@ -68,7 +63,6 @@ export function MobileNav() {
                 </Button>
               </div>
 
-              {/* Navigation Links */}
               <nav className="space-y-2">
                 {visibleLinks.map((link) => {
                   const Icon = link.icon;
@@ -93,7 +87,6 @@ export function MobileNav() {
                 })}
               </nav>
 
-              {/* Auth Section */}
               {!isAuthenticated && (
                 <div className="absolute bottom-6 left-6 right-6 space-y-2">
                   <Button asChild className="w-full">

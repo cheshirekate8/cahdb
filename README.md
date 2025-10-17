@@ -37,8 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 TO FIX
-- Instead of "Pack 0" use name of pack
-- 20 black and 40 white cards maximum, instead of 1000 cards
 - drag and drop
 - toaster alerts
 - cart functionality 
@@ -52,3 +50,4 @@ TO FIX
   - downloads
 - Remove all irrelevant commented out code
 - Show/Hide deck doesn't work (pops up in bottom)
+- animated circles and background gradient dont work

@@ -64,7 +64,6 @@ export function DevelopmentTimeline() {
           variants={staggerItem}
           className="flex gap-6"
         >
-          {/* Timeline Line */}
           <div className="flex flex-col items-center">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
               {index + 1}
@@ -74,7 +73,6 @@ export function DevelopmentTimeline() {
             )}
           </div>
 
-          {/* Content */}
           <div className="flex-1 pb-8">
             <div className="flex items-center gap-2 mb-2">
               <h3 className="font-semibold text-lg">{phase.title}</h3>

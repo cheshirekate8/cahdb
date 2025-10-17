@@ -15,7 +15,8 @@ export function DeckStats() {
   const totalCards = getTotalCards();
   const blackCount = currentDeck.blackCards.length;
   const whiteCount = currentDeck.whiteCards.length;
-  const percentFull = (totalCards / DECK_CONSTRAINTS.MAX_CARDS) * 100;
+  const blackPercent = (blackCount / DECK_CONSTRAINTS.MAX_BLACK_CARDS) * 100;
+  const whitePercent = (whiteCount / DECK_CONSTRAINTS.MAX_WHITE_CARDS) * 100;
   const isValidDeck = isValid();
   const isDownloadable = canDownload();
 
@@ -24,7 +25,6 @@ export function DeckStats() {
       <Card>
         <CardContent className="p-6">
           <div className="space-y-4">
-            {/* Deck Name */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -40,7 +40,6 @@ export function DeckStats() {
               )}
             </motion.div>
 
-            {/* Card Counts */}
             <motion.div
               className="grid grid-cols-3 gap-4"
               initial={{ opacity: 0 }}
@@ -61,22 +60,38 @@ export function DeckStats() {
               </motion.div>
             </motion.div>
 
-            {/* Progress Bar */}
             <motion.div
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <div className="flex justify-between text-xs text-muted-foreground mb-2">
-                <span>Capacity</span>
-                <span>
-                  {totalCards} / {DECK_CONSTRAINTS.MAX_CARDS}
-                </span>
+              <div>
+                <div className="flex justify-between text-xs text-muted-foreground mb-2">
+                  <span>Black Cards</span>
+                  <span>
+                    {blackCount} / {DECK_CONSTRAINTS.MAX_BLACK_CARDS}
+                  </span>
+                </div>
+                <Progress value={blackPercent} className="h-2" />
               </div>
-              <Progress value={percentFull} className="h-2" />
             </motion.div>
 
-            {/* Validation Status */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <div>
+                <div className="flex justify-between text-xs text-muted-foreground mb-2">
+                  <span>White Cards</span>
+                  <span>
+                    {whiteCount} / {DECK_CONSTRAINTS.MAX_WHITE_CARDS}
+                  </span>
+                </div>
+                <Progress value={whitePercent} className="h-2" />
+              </div>
+            </motion.div>
+
             <motion.div
               className="flex items-center gap-2 text-sm"
               initial={{ opacity: 0, y: 10 }}
@@ -96,7 +111,6 @@ export function DeckStats() {
               )}
             </motion.div>
 
-            {/* Badges */}
             <motion.div
               className="flex gap-2 flex-wrap"
               initial={{ opacity: 0 }}
@@ -116,6 +130,16 @@ export function DeckStats() {
               {totalCards === 0 && (
                 <motion.div whileHover={{ scale: 1.05 }}>
                   <Badge variant="outline">Empty</Badge>
+                </motion.div>
+              )}
+              {blackCount === DECK_CONSTRAINTS.MAX_BLACK_CARDS && (
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Badge variant="destructive">Max Black Cards</Badge>
+                </motion.div>
+              )}
+              {whiteCount === DECK_CONSTRAINTS.MAX_WHITE_CARDS && (
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Badge variant="destructive">Max White Cards</Badge>
                 </motion.div>
               )}
             </motion.div>

@@ -54,13 +54,12 @@ export const useDeckStore = create<DeckState>()(
 
       addBlackCard: (card) =>
         set((state) => {
-          const totalCards =
-            state.currentDeck.blackCards.length +
-            state.currentDeck.whiteCards.length;
-
-          if (totalCards >= DECK_CONSTRAINTS.MAX_CARDS) {
+          if (
+            state.currentDeck.blackCards.length >=
+            DECK_CONSTRAINTS.MAX_BLACK_CARDS
+          ) {
             alert(
-              `Cannot add more than ${DECK_CONSTRAINTS.MAX_CARDS} cards to a deck`
+              `Cannot add more than ${DECK_CONSTRAINTS.MAX_BLACK_CARDS} black cards to a deck`
             );
             return state;
           }
@@ -76,13 +75,12 @@ export const useDeckStore = create<DeckState>()(
 
       addWhiteCard: (card) =>
         set((state) => {
-          const totalCards =
-            state.currentDeck.blackCards.length +
-            state.currentDeck.whiteCards.length;
-
-          if (totalCards >= DECK_CONSTRAINTS.MAX_CARDS) {
+          if (
+            state.currentDeck.whiteCards.length >=
+            DECK_CONSTRAINTS.MAX_WHITE_CARDS
+          ) {
             alert(
-              `Cannot add more than ${DECK_CONSTRAINTS.MAX_CARDS} cards to a deck`
+              `Cannot add more than ${DECK_CONSTRAINTS.MAX_WHITE_CARDS} white cards to a deck`
             );
             return state;
           }

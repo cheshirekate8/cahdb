@@ -82,7 +82,6 @@ export function DeckActions() {
 
   return (
     <div className="flex flex-wrap gap-2">
-      {/* Save Button */}
       <motion.div whileTap={buttonTap} className="flex-1 sm:flex-none">
         <Button
           onClick={handleSave}
@@ -98,7 +97,6 @@ export function DeckActions() {
         </Button>
       </motion.div>
 
-      {/* Download Button */}
       <motion.div whileTap={buttonTap} className="flex-1 sm:flex-none">
         <Button
           variant="outline"
@@ -111,7 +109,6 @@ export function DeckActions() {
         </Button>
       </motion.div>
 
-      {/* Clear Deck Button */}
       <AlertDialog>
         <AlertDialogTrigger asChild>
           <motion.div whileTap={buttonTap} className="flex-1 sm:flex-none">

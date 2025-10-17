@@ -10,7 +10,7 @@ import Image from 'next/image';
 interface GameCardProps {
   card: BlackCard | WhiteCard;
   type: CardType;
-  packName?: string | undefined; // Be very explicit
+  packName?: string | undefined;
   isSelected?: boolean;
   isInDeck?: boolean;
   onClick?: () => void;
@@ -65,7 +65,6 @@ export function GameCard({
           </motion.div>
         )}
 
-        {/* Remove button */}
         {isInDeck && onRemove && (
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
@@ -88,7 +87,6 @@ export function GameCard({
           </motion.button>
         )}
 
-        {/* Card text */}
         <div className="flex-1 flex items-center justify-center">
           <p
             className={cn(
@@ -99,7 +97,6 @@ export function GameCard({
           </p>
         </div>
 
-        {/* Footer */}
         <div className="flex items-end justify-between mt-4">
           <div className="text-xs opacity-60">
             {packName || `Pack ${card.pack}`}

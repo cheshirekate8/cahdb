@@ -9,10 +9,8 @@ import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 export function HeroSection() {
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
-      {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background -z-10" />
 
-      {/* Animated Circles */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
@@ -46,7 +44,6 @@ export function HeroSection() {
           animate="visible"
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Badge */}
           <motion.div variants={staggerItem} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <Sparkles className="h-4 w-4" />
@@ -54,7 +51,6 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Heading */}
           <motion.h1
             variants={staggerItem}
             className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
@@ -62,7 +58,6 @@ export function HeroSection() {
             Create Your Perfect <span className="text-primary">Card Deck</span>
           </motion.h1>
 
-          {/* Subheading */}
           <motion.p
             variants={staggerItem}
             className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto"
@@ -71,7 +66,6 @@ export function HeroSection() {
             click-to-add builder.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             variants={staggerItem}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -93,7 +87,6 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          {/* Trust Indicators */}
           <motion.div
             variants={staggerItem}
             className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"

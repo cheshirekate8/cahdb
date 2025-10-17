@@ -13,7 +13,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
-  // Transform scroll to blur and shadow
   const backdropBlur = useTransform(scrollY, [0, 50], [0, 10]);
   const boxShadow = useTransform(
     scrollY,
@@ -43,7 +42,6 @@ export function Header() {
         }`}
       >
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition-opacity"
@@ -52,10 +50,8 @@ export function Header() {
             <span>Deck Builder</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <DesktopNav />
 
-          {/* Right Section */}
           <div className="flex items-center gap-4">
             <UserMenu />
             <MobileNav />

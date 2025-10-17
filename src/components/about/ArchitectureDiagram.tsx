@@ -16,7 +16,6 @@ export function ArchitectureDiagram() {
       <Card>
         <CardContent className="p-8">
           <div className="space-y-8">
-            {/* Frontend Layer */}
             <div className="space-y-4">
               <h4 className="font-semibold text-center">Frontend Layer</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -45,7 +44,6 @@ export function ArchitectureDiagram() {
               <ArrowRight className="h-6 w-6 text-muted-foreground rotate-90" />
             </div>
 
-            {/* API Layer */}
             <div className="space-y-4">
               <h4 className="font-semibold text-center">API Layer</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -68,7 +66,6 @@ export function ArchitectureDiagram() {
               <ArrowRight className="h-6 w-6 text-muted-foreground rotate-90" />
             </div>
 
-            {/* Database Layer */}
             <div className="space-y-4">
               <h4 className="font-semibold text-center">Database Layer</h4>
               <div className="p-6 rounded-lg bg-indigo-50 dark:bg-indigo-950 border-2 border-indigo-200 dark:border-indigo-800">

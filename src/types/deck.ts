@@ -37,7 +37,9 @@ export interface DeckValidation {
 
 export const DECK_CONSTRAINTS = {
   MIN_CARDS: 0,
-  MAX_CARDS: 1000,
+  MAX_CARDS: 60,
+  MAX_BLACK_CARDS: 20,
+  MAX_WHITE_CARDS: 40,
   MIN_FOR_DOWNLOAD: 1,
   NAME_MIN_LENGTH: 1,
   NAME_MAX_LENGTH: 255,

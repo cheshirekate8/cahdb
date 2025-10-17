@@ -68,21 +68,17 @@ export function HowItWorks() {
                 variants={staggerItem}
                 className="relative text-center"
               >
-                {/* Step Number */}
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
                   {step.step}
                 </div>
 
-                {/* Icon */}
                 <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6 mt-4">
                   <Icon className="h-10 w-10 text-primary" />
                 </div>
 
-                {/* Content */}
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground">{step.description}</p>
 
-                {/* Connector Line (not on last item) */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-14 left-[60%] w-[80%] h-0.5 bg-border" />
                 )}

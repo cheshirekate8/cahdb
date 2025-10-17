@@ -11,7 +11,6 @@ export function DesktopNav() {
   const pathname = usePathname();
   const { isAuthenticated } = useAuth();
 
-  // Filter links based on auth status
   const visibleLinks = navigationLinks.filter(
     (link) => !link.requiresAuth || isAuthenticated
   );
@@ -34,7 +33,6 @@ export function DesktopNav() {
           >
             {link.label}
 
-            {/* Active Indicator */}
             {isActive && (
               <motion.div
                 layoutId="activeNav"

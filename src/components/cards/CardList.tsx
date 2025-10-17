@@ -58,7 +58,7 @@ export function CardList({
           <GameCard
             card={card}
             type={type}
-            packName={packLookup?.get(card.pack)} // Pass pack name
+            packName={packLookup?.get(card.pack)}
             onClick={() => onCardClick?.(card)}
           />
         </motion.div>

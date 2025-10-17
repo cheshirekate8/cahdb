@@ -7,7 +7,6 @@ export function createPackLookup(packs: CardPack[]): Map<number, string> {
   const lookup = new Map<number, string>();
 
   packs.forEach((pack) => {
-    // Get pack number from first card in the pack
     const packNumber = pack.black[0]?.pack || pack.white[0]?.pack;
     if (packNumber !== undefined) {
       lookup.set(packNumber, pack.name);
@@ -16,10 +15,6 @@ export function createPackLookup(packs: CardPack[]): Map<number, string> {
 
   return lookup;
 }
-
-/**
- * Get pack name for a card
- */
 export function getPackName(
   card: BlackCard | WhiteCard,
   packs: CardPack[]

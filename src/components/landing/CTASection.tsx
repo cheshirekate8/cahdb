@@ -43,7 +43,6 @@ export function CTASection() {
             </Button>
           </div>
 
-          {/* Trust Badge */}
           {/* <p className="mt-8 text-sm text-muted-foreground">
             ✓ Free forever · ✓ No credit card required · ✓ Start in seconds
           </p> */}
