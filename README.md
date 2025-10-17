@@ -42,12 +42,10 @@ TO FIX
 - cart functionality 
 - fix localStorage hydration warning, only on refresh 
 - Cards currently sliced to 20, make a "Load more..." button, card pagination
-- Fix mobile
 - Get supabase calls for 
   - how many decks created
   - how many users
   - shared decks
   - downloads
-- Remove all irrelevant commented out code
-- Show/Hide deck doesn't work (pops up in bottom)
-- animated circles and background gradient dont work
+- Consistent Card sizes
+- Better drawer button, too basic

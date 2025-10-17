@@ -12,10 +12,11 @@ import { DeckNameEditor } from '@/components/deck/DeckNameEditor';
 import { CardType } from '@/types/card';
 import type { BlackCard, WhiteCard } from '@/types/card';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { X } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 export default function BuilderPage() {
-  const [showDeck, setShowDeck] = useState(true);
+  const [showDeck, setShowDeck] = useState(false); // Start as false on mobile
 
   const {
     filteredBlackCards,
@@ -30,7 +31,7 @@ export default function BuilderPage() {
     packLookup,
   } = useCards();
 
-  const { addBlackCard, addWhiteCard } = useDeckStore();
+  const { addBlackCard, addWhiteCard, getTotalCards } = useDeckStore();
 
   const handleCardClick = (card: BlackCard | WhiteCard, type: CardType) => {
     if (type === CardType.BLACK) {
@@ -61,8 +62,9 @@ export default function BuilderPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8  overflow-y-auto">
-          <div className={`${showDeck ? 'lg:col-span-7' : 'lg:col-span-12'}`}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Card Browser Section */}
+          <div className="lg:col-span-7">
             <CardFilters
               filters={filters}
               onFiltersChange={setFilters}
@@ -108,29 +110,69 @@ export default function BuilderPage() {
             </div>
           </div>
 
-          {showDeck && (
-            <div className="lg:col-span-5">
-              <div className="lg:sticky lg:top-4 space-y-4">
-                <DeckNameEditor />
-                <DeckStats />
-                <DeckActions />
+          {/* Deck Section - Desktop (always visible) */}
+          <div className="hidden lg:block lg:col-span-5">
+            <div className="lg:sticky lg:top-4 space-y-4">
+              <DeckNameEditor />
+              <DeckStats />
+              <DeckActions />
 
-                <div className="max-h-[600px] border rounded-lg bg-card p-4">
-                  <DeckArea />
-                </div>
+              <div className="max-h-[600px] overflow-y-auto border rounded-lg bg-card p-4">
+                <DeckArea />
               </div>
             </div>
-          )}
-
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => setShowDeck(!showDeck)}
-            className="fixed bottom-4 right-4 lg:hidden z-50 h-12 w-12 rounded-full shadow-lg"
-          >
-            {showDeck ? <ChevronRight /> : <ChevronLeft />}
-          </Button>
+          </div>
         </div>
+
+        {/* Mobile Deck Drawer Overlay */}
+        {showDeck && (
+          <div
+            className="lg:hidden fixed inset-0 bg-black/50 z-40"
+            onClick={() => setShowDeck(false)}
+          />
+        )}
+
+        {/* Mobile Deck Drawer */}
+        <div
+          className={`
+            lg:hidden fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background z-50
+            transform transition-transform duration-300 ease-in-out
+            ${showDeck ? 'translate-x-0' : 'translate-x-full'}
+            shadow-2xl overflow-y-auto
+          `}
+        >
+          {/* Close button */}
+          <div className="sticky top-0 bg-background border-b p-4 flex items-center justify-between z-10">
+            <h2 className="text-xl font-bold">Your Deck</h2>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setShowDeck(false)}
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
+
+          {/* Deck content */}
+          <div className="p-4 space-y-4">
+            <DeckNameEditor />
+            <DeckStats />
+            <DeckActions />
+            <DeckArea />
+          </div>
+        </div>
+
+        {/* Toggle Deck Button (Mobile) - Floating Button */}
+        <Button
+          onClick={() => setShowDeck(!showDeck)}
+          className="lg:hidden fixed bottom-4 right-4 z-30 h-12 w-12 rounded-full shadow-lg border-2 border-white"
+          size="icon"
+        >
+          <div className="flex justify-center items-center">
+            <ChevronLeft />
+            {getTotalCards() > 0 && <span className="">{getTotalCards()}</span>}
+          </div>
+        </Button>
       </div>
     </div>
   );
