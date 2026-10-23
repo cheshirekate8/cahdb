@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { SignupForm } from '@/components/auth/SignupForm';
+import { SignupForm } from '@/components/auth/SignUpForm';
 import { SocialAuthButtons } from '@/components/auth/SocialAuthButtons';
 
 export const metadata = {
